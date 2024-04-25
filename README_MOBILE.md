@@ -1,5 +1,7 @@
 # Project Name
-MY PLANT INFO APP gu
+MY PLANT INFO APP
+
+the API = https://perenual.com/docs/api
 
 ## About Project
 Tujuan Utama dari produk yang kami kembangkan adalah Penambahan wawasan kepada masyarakat tentang dunia tanaman pada umumnya, di karenakan pentingnya sosialisasi kepada masyarakat mengenai Pelestarian Lingkungan Hidup yang harus selalu di jaga. 
