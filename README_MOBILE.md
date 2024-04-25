@@ -1,5 +1,5 @@
 # Project Name
-MY PLANT INFO APP
+GREEN GARDEN 
 
 the API = https://perenual.com/docs/api
 
