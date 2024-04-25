@@ -1,26 +1,33 @@
 # Project Name
 
 ## About Project
-tambahkan deskripsi project disini
+Tujuan Utama dari produk yang kami kembangkan adalah Penambahan wawasan kepada masyarakat tentang dunia tanaman pada umumnya, di karenakan pentingnya sosialisasi kepada masyarakat mengenai Pelestarian Lingkungan Hidup yang harus selalu di jaga. 
+Dengan adanya aplikasi ini, di harapkan dapat menjangkau masyarakat bahkan sampai pada daerah paling dalam, di dukung dengan basis dari aplikasi ini sendiri yaitu Mobile.
+
 
 ## Features
 sebutkan fitur-fitur yang ada di project yang dibuat
 
 ### User
-- feature A
-- feature B
-- feature C
+- Masuk Pengguna
+- pendaftaran pengguna
+- Lihat Gambar Tanaman & Detail Tanaman
+- Lihat Informasi tentang tanaman di website tanaman
+- Lihat Tips untuk perawatan tanaman
+- Lihat Penyakit Tanaman
+- Tambahkan tanaman ke daftar favorit
 
 ### Admin
-- feature A
-- feature B
-- feature C
+- Tambahkan Informasi Tanaman
+- Edit Informasi Tanaman
+- Hapus Informasi Tanaman
+- Kelola Akun Pengguna
 
 ## Tech Stacks
 sebutkan daftar tools dan framework yang digunakan dalam bentuk list seperti ini:
-- tech stack A
-- tech stack B
-- tech stack C
+- Visual Studio Code
+- Flutter
+- Firebase
 
 ## Sample App Demo
 sertakan link apk yang sudah di-build
