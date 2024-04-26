@@ -19,12 +19,8 @@ sebutkan fitur-fitur yang ada di project yang dibuat
 - Lihat Tips untuk perawatan tanaman
 - Lihat Penyakit Tanaman
 - Tambahkan tanaman ke daftar favorit
+- Kelola Profil Pengguna
 
-### Admin 
-- Tambahkan Informasi Tanaman
-- Edit Informasi Tanaman
-- Hapus Informasi Tanaman
-- Kelola Akun Pengguna
 
 ## Tech Stacks
 sebutkan daftar tools dan framework yang digunakan dalam bentuk list seperti ini:
