@@ -20,7 +20,7 @@ sebutkan fitur-fitur yang ada di project yang dibuat
 - Lihat Penyakit Tanaman
 - Tambahkan tanaman ke daftar favorit
 
-### Admin
+### Admin 
 - Tambahkan Informasi Tanaman
 - Edit Informasi Tanaman
 - Hapus Informasi Tanaman
