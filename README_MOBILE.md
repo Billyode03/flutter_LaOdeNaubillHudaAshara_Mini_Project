@@ -19,7 +19,7 @@ sebutkan fitur-fitur yang ada di project yang dibuat
 - Lihat Tips untuk perawatan tanaman
 - Lihat Penyakit Tanaman
 - Tambahkan tanaman ke daftar favorit
-- Kelola Profil Pengguna
+
 
 
 ## Tech Stacks
