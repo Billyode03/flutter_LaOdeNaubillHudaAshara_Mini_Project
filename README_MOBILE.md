@@ -18,8 +18,6 @@ sebutkan fitur-fitur yang ada di project yang dibuat
 - Lihat Informasi tentang tanaman di website tanaman
 - Lihat Tips untuk perawatan tanaman
 - Lihat Penyakit Tanaman
-- Tambahkan tanaman ke daftar favorit
-
 
 
 ## Tech Stacks
