@@ -16,7 +16,6 @@ sebutkan fitur-fitur yang ada di project yang dibuat
 - pendaftaran pengguna
 - Lihat Gambar Tanaman & Detail Tanaman
 - Lihat Informasi tentang tanaman di website tanaman
-- Lihat Tips untuk perawatan tanaman
 - Lihat Penyakit Tanaman
 
 
