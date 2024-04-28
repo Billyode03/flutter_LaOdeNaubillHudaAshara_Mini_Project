@@ -9,7 +9,7 @@ Dengan adanya aplikasi ini, di harapkan dapat menjangkau masyarakat bahkan sampa
 
 
 ## Features
-sebutkan fitur-fitur yang ada di project yang dibuat
+<!-- sebutkan fitur-fitur yang ada di project yang dibuat -->
 
 ### User
 - Masuk Pengguna
@@ -20,13 +20,13 @@ sebutkan fitur-fitur yang ada di project yang dibuat
 
 
 ## Tech Stacks
-sebutkan daftar tools dan framework yang digunakan dalam bentuk list seperti ini:
+<!-- sebutkan daftar tools dan framework yang digunakan dalam bentuk list seperti ini: -->
 - Visual Studio Code
 - Flutter
 - Firebase
 
 ## Sample App Demo
-sertakan link apk yang sudah di-build
+<!-- sertakan link apk yang sudah di-build -->
 
 ## Setup 
-sebutkan cara menggunakan project ini di lokal
+<!-- sebutkan cara menggunakan project ini di lokal -->
