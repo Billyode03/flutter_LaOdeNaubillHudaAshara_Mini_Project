@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/auth/login_pages.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
 
@@ -86,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Center(
               child: ReusableButtonSubmit(
                   onTap: () {},
-                  text: 'Sign In',
+                  text: 'Sign Up',
                   textStyle: TextStyleUsable.interButton),
             ),
             Row(
@@ -97,7 +98,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyleUsable.interRegular,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Sign in',
                     style: TextStyleUsable.interRegularTwo,

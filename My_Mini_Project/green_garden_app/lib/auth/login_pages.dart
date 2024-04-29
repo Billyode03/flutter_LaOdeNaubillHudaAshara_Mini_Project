@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/Pages/home_page.dart';
+import 'package:green_garden/auth/forgot_psw_page.dart';
 import 'package:green_garden/auth/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
@@ -62,8 +64,38 @@ class _LoginPageState extends State<LoginPage> {
                   prefixIcon: IconConstant.passwordIcon,
                   enable: true),
             ),
+            Padding(
+              padding: EdgeInsets.only(left: 190),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ForgetPasswordPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Forget Password ??',
+                  style: TextStyleUsable.interRegularFP,
+                ),
+              ),
+            ),
             SizedBox(
-              height: 10,
+              height: 63,
+            ),
+            Center(
+              child: ReusableButtonSubmit(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                  },
+                  text: 'Sign In',
+                  textStyle: TextStyleUsable.interButton),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -88,15 +120,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 70,
-            ),
-            Center(
-              child: ReusableButtonSubmit(
-                  onTap: () {},
-                  text: 'Sign In',
-                  textStyle: TextStyleUsable.interButton),
-            )
           ],
         ),
       ),

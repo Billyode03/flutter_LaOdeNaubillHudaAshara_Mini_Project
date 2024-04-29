@@ -6,7 +6,10 @@ class ReusableButtonSubmit extends StatelessWidget {
   final String text;
   final TextStyle textStyle;
   const ReusableButtonSubmit(
-      {super.key, required this.onTap, required this.text, required this.textStyle});
+      {super.key,
+      required this.onTap,
+      required this.text,
+      required this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +21,12 @@ class ReusableButtonSubmit extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: ColorPlants.whiteSkull,
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: textStyle,
+          ),
         ),
       ),
     );

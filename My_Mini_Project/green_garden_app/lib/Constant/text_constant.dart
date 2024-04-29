@@ -20,12 +20,12 @@ class TextStyleUsable {
     fontSize: 15,
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.normal,
-    color: ColorPlants.greenDark,
+    color: ColorPlants.whiteSkull,
   );
 
   static TextStyle interButton = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
-    fontSize: 15,
+    fontSize: 20,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
     color: ColorPlants.greenDark,
@@ -37,6 +37,12 @@ class TextStyleUsable {
     fontWeight: FontWeight.normal,
     color: ColorPlants.whiteSkull,
   );
+  static TextStyle interRegularGreen = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    color: ColorPlants.greenDark,
+  );
 
   static TextStyle interRegularThree = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
@@ -45,12 +51,21 @@ class TextStyleUsable {
     color: ColorPlants.grey,
   );
 
-  // Untuk Sign in/up tulisan
+  // Untuk tulisan Sign in/up
   static TextStyle interRegularTwo = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 17,
     fontWeight: FontWeight.bold,
     color: ColorPlants.whiteSkull,
+    decoration: TextDecoration.underline,
+  );
+
+  // tulisan forget Password
+  static TextStyle interRegularFP = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    color: ColorPlants.greyColor3.withOpacity(0.8),
     decoration: TextDecoration.underline,
   );
 
@@ -60,11 +75,19 @@ class TextStyleUsable {
     fontWeight: FontWeight.bold,
     color: ColorPlants.greenDark,
   );
+
+  static TextStyle interRegularFour = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 45,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
   static TextStyle interOnScreenOne = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,
     fontWeight: FontWeight.normal,
-    color: ColorPlants.grey,
+    color: ColorPlants.greyColor1,
   );
   static TextStyle interOnScreenTwo = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),

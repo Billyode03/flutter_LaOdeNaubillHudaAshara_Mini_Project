@@ -31,21 +31,23 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               PlantPageThree(),
             ],
           ),
+          Positioned(
+            top: MediaQuery.of(context).padding.top +
+                25, // Sesuaikan dengan kebutuhan Anda
+            right: 25, // Sesuaikan dengan kebutuhan Anda
+            child: GestureDetector(
+              onTap: () {
+                _contrroler.jumpToPage(2);
+              },
+              child: Text('Skip', style: TextStyleUsable.interOnScreenTwo),
+            ),
+          ),
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(top: 700),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    _contrroler.jumpToPage(2);
-                  },
-                  child: Text(
-                    'skip',
-                    style: TextStyleUsable.interOnScreenOne,
-                  ),
-                ),
                 SmoothPageIndicator(
                   controller: _contrroler,
                   count: 3,
@@ -55,6 +57,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     spacing: 5,
                     dotHeight: 6,
                   ),
+                ),
+                SizedBox(
+                  width: 100,
                 ),
                 GestureDetector(
                   onTap: () {
