@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_garden/Pages/home_page.dart';
 import 'package:green_garden/auth/forgot_psw_page.dart';
 import 'package:green_garden/auth/login_pages.dart';
 import 'package:green_garden/auth/register_page.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: HomePage(),
     );
   }
 }
