@@ -19,10 +19,13 @@ class MenuHomeWidget extends StatelessWidget {
           height: 56,
           width: 64,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(20),
             color: ColorPlants.whiteSkull,
           ),
-          child: iconConstant,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: iconConstant,
+          ),
         ),
         SizedBox(
           height: 5,

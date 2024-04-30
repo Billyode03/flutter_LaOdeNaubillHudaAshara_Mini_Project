@@ -10,11 +10,22 @@ class PlantListMenuHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        MenuHomeWidget(
+            title: 'Disease', iconConstant: IconConstant.articleIcon),
+        SizedBox(
+          width: 20,
+        ),
         MenuHomeWidget(title: 'Disease', iconConstant: IconConstant.virusIcon),
-        MenuHomeWidget(title: 'Disease', iconConstant: IconConstant.virusIcon),
-        MenuHomeWidget(title: 'Disease', iconConstant: IconConstant.virusIcon),
-        MenuHomeWidget(title: 'Disease', iconConstant: IconConstant.virusIcon),
+        SizedBox(
+          width: 20,
+        ),
+        MenuHomeWidget(title: 'Disease', iconConstant: IconConstant.loveIcon),
+        SizedBox(
+          width: 20,
+        ),
+        MenuHomeWidget(title: 'Disease', iconConstant: IconConstant.ideaIcon),
       ],
     );
   }
