@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
+import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/introduction_pages/plant_page_one.dart';
 import 'package:green_garden/Pages/introduction_pages/plant_page_three.dart';
@@ -76,10 +77,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           curve: Curves.easeIn);
                     }
                   },
-                  child: Text(
-                    'next',
-                    style: TextStyleUsable.interOnScreenTwo,
-                  ),
+                  child: Container(
+                      width: 65,
+                      height: 35,
+                      decoration: BoxDecoration(
+                          color: ColorPlants.greenDark,
+                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                      child: IconConstant.arrowRightIcon),
                 ),
               ],
             ),

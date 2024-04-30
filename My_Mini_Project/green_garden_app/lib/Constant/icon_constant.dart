@@ -19,8 +19,8 @@ class IconConstant {
   );
   static Icon arrowRightIcon = Icon(
     Icons.arrow_right_alt,
-    color: ColorPlants.greenDark,
-    size: 25,
+    color: ColorPlants.whiteSkull,
+    size: 35,
   );
   static Icon cycleIcon = Icon(
     Icons.cyclone,

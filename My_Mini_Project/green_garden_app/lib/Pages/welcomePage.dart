@@ -81,16 +81,13 @@ class _WelcomePageState extends State<WelcomePage> {
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                        color: ColorPlants.whiteSkull,
-                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                      color: ColorPlants.whiteSkull,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30),
+                      ),
+                    ),
                   ),
                 )
-                // Center(
-                //   child: ReusableButtonSubmit(
-                //       onTap: () {},
-                //       text: 'Sign In',
-                //       textStyle: TextStyleUsable.interButton),
-                // )
               ],
             ),
           ),
