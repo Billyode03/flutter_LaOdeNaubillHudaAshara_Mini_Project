@@ -9,7 +9,8 @@ class MenuHomeWidget extends StatelessWidget {
   const MenuHomeWidget({
     super.key,
     required this.title,
-    required this.iconConstant, this.onTap,
+    required this.iconConstant,
+    this.onTap,
   });
 
   @override
@@ -17,8 +18,8 @@ class MenuHomeWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 56,
-          width: 64,
+          height: 50,
+          width: 58,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: ColorPlants.whiteSkull,

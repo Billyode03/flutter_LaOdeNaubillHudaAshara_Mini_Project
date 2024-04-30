@@ -5,7 +5,7 @@ class ColorPlants {
   static Color greenMedium = const Color(0xFF76B39D);
   static Color whiteSkull = const Color(0xFFF9F8EB);
   static Color grey = const Color(0xFFEAE7E7);
-  static Color cyanPlant = const Color(0xFF27A2AB);
+  static Color cyanPlant = Color(0xFF27A2AB);
 
   static Color backgroundColor = const Color(0xFF155E63);
   static Color whiteColor = const Color(0xFFFFFFFF);

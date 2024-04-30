@@ -99,13 +99,13 @@ class _HomePageState extends State<HomePage>
       tabBarHeight: 55,
       textStyle: const TextStyle(
         fontSize: 12,
-        color: Colors.black,
+        color: Color(0xff27a2AB),
         fontWeight: FontWeight.w500,
       ),
       tabIconColor: Colors.grey.shade400,
       tabIconSize: 28.0,
       tabIconSelectedSize: 26.0,
-      tabSelectedColor: Colors.indigo,
+      tabSelectedColor: ColorPlants.cyanPlant,
       tabIconSelectedColor: Colors.white,
       tabBarColor: Colors.white,
       onTabItemSelected: (int value) {
@@ -183,9 +183,7 @@ class _HomePageState extends State<HomePage>
                           margin: EdgeInsets.symmetric(
                               horizontal: isSelected ? 6 : 3),
                           decoration: BoxDecoration(
-                            color: isSelected
-                                ? Colors.white
-                                : Colors.grey.shade200,
+                            color: isSelected ? Colors.cyan : Colors.cyan[100],
                             borderRadius: BorderRadius.circular(
                               40,
                             ),
