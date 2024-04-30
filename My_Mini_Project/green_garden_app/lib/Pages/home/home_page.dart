@@ -1,13 +1,19 @@
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/Pages/home/widget/carousel/imageCarousel.dart';
+import 'package:green_garden/Pages/home/widget/carousel/image_viewer.dart';
 import 'package:green_garden/Pages/home/widget/header/header_home_widget.dart';
 import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.dart';
 import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
 import 'package:green_garden/auth/register/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
+import 'package:motion_tab_bar/MotionTabBar.dart';
+import 'package:motion_tab_bar/MotionTabBarController.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,13 +22,44 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  MotionTabBarController? _motionTabBarController;
 
-  // MotionTabbarController? _motionTabbarController;
+  late CarouselController innerCarouselController;
+  late CarouselController outerCarouselController;
+  int innerCurrentPage = 0;
+  int outerCurrentPage = 0;
 
-  
+  @override
+  void initState() {
+    innerCarouselController = CarouselController();
+    outerCarouselController = CarouselController();
+    _motionTabBarController = MotionTabBarController(
+      initialIndex: 1,
+      length: 4,
+      // animationDuration: Duration(milliseconds: 300),
+      vsync: this,
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    _motionTabBarController!.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size;
+    double height, width;
+
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
+
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
       body: SingleChildScrollView(
@@ -43,10 +80,172 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               PlantListMenuHome(),
+              _innerBannerSlider(200, 100),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: _buildBottomNavigationBar(),
+    );
+  }
+
+  MotionTabBar _buildBottomNavigationBar() {
+    return MotionTabBar(
+      controller: _motionTabBarController,
+      initialSelectedTab: "Home",
+      labels: const ["Dashboard", "Home", "Profile", "Settings"],
+      icons: const [
+        Icons.dashboard,
+        Icons.home,
+        Icons.people_alt,
+        Icons.settings
+      ],
+      tabSize: 50,
+      tabBarHeight: 55,
+      textStyle: const TextStyle(
+        fontSize: 12,
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
+      ),
+      tabIconColor: Colors.grey.shade400,
+      tabIconSize: 28.0,
+      tabIconSelectedSize: 26.0,
+      tabSelectedColor: Colors.indigo,
+      tabIconSelectedColor: Colors.white,
+      tabBarColor: Colors.white,
+      onTabItemSelected: (int value) {
+        setState(() {
+          _motionTabBarController!.index = value;
+        });
+      },
+    );
+  }
+
+  Widget _innerBannerSlider(double height, double width) {
+    return Column(
+      children: [
+        /// Slider Style
+        const Padding(
+          padding: EdgeInsets.all(15),
+          child: Text(
+            "Inner Indicator Style",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          ),
+        ),
+
+        SizedBox(
+          height: height * .25,
+          width: width,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              /// Carousel Slider
+              Positioned.fill(
+                child: CarouselSlider(
+                  carouselController: innerCarouselController,
+
+                  /// It's options
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    viewportFraction: 0.8,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        innerCurrentPage = index;
+                      });
+                    },
+                  ),
+
+                  /// Items
+                  items: ImageCarouselData.innerStyleImages.map((imagePath) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        /// Custom Image Viewer widget
+                        return CustomImageViewer.Show(
+                          context: context,
+                          assetPath: imagePath,
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
+              ),
+
+              /// Indicators
+              Positioned(
+                bottom: height * .02,
+                child: Row(
+                  children: List.generate(
+                    ImageCarouselData.innerStyleImages.length,
+                    (index) {
+                      bool isSelected = innerCurrentPage == index;
+                      return GestureDetector(
+                        onTap: () {
+                          innerCarouselController.animateToPage(index);
+                        },
+                        child: AnimatedContainer(
+                          width: isSelected ? 55 : 17,
+                          height: 10,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: isSelected ? 6 : 3),
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? Colors.white
+                                : Colors.grey.shade200,
+                            borderRadius: BorderRadius.circular(
+                              40,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.ease,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+
+              /// Left Icon
+              Positioned(
+                left: 11,
+                child: CircleAvatar(
+                  backgroundColor: Colors.black.withOpacity(0.2),
+                  child: IconButton(
+                    onPressed: () {
+                      innerCarouselController
+                          .animateToPage(innerCurrentPage - 1);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+
+              /// Right Icon
+              Positioned(
+                right: 11,
+                child: CircleAvatar(
+                  backgroundColor: Colors.black.withOpacity(0.2),
+                  child: IconButton(
+                    onPressed: () {
+                      innerCarouselController
+                          .animateToPage(innerCurrentPage + 1);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
