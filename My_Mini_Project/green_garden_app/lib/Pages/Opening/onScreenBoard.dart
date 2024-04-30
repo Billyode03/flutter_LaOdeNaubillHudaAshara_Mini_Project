@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/Opening/introduction_pages/plant_page_one.dart';
-import 'package:green_garden/Pages/Opening/introduction_pages/plant_page_three.dart';
-import 'package:green_garden/Pages/Opening/introduction_pages/plant_page_two.dart';
+import 'package:green_garden/Pages/Opening/introduction_pages/widget/plant_page_one.dart';
+import 'package:green_garden/Pages/Opening/introduction_pages/widget/plant_page_three.dart';
+import 'package:green_garden/Pages/Opening/introduction_pages/widget/plant_page_two.dart';
 import 'package:green_garden/Pages/Opening/welcomePage.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

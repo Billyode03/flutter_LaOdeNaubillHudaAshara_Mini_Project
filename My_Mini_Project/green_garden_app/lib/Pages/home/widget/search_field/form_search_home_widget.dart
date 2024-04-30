@@ -10,10 +10,10 @@ class FormSearchHomeWidget extends StatelessWidget {
     return Container(
       height: 50,
       child: TextField(
-        enabled: false,
+        enabled: true,
         decoration: InputDecoration(
           filled: true,
-          fillColor: ColorPlants.grey,
+          fillColor: ColorPlants.whiteSkull,
           hintText: 'Search plant, tree, articles...',
           hintStyle: TextStyleUsable.interRegularGreen,
           prefixIcon: Icon(Icons.search, color: ColorPlants.greyColor2),
