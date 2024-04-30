@@ -31,6 +31,14 @@ class TextStyleUsable {
     color: ColorPlants.greenDark,
   );
 
+  static TextStyle interButton1 = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 20,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
   static TextStyle interRegular = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,

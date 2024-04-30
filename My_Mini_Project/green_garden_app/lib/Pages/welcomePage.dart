@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/auth/login_pages.dart';
 import 'package:green_garden/auth/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
@@ -60,30 +61,60 @@ class _WelcomePageState extends State<WelcomePage> {
                 SizedBox(height: 350),
                 Center(
                   child: Container(
-                    child: Column(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              child: Text('Sign In'),
+                        Container(
+                          width: 140,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: ColorPlants.greenDark,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30))),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Sign In',
+                              style: TextStyleUsable.interButton1,
                             ),
-                          ],
+                          ),
                         ),
-                        Row(
-                          children: [
-                            Container(
-                              child: Text('Sign In'),
+                        Container(
+                          width: 110,
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RegisterPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Sign Out',
+                              style: TextStyleUsable.interButton,
                             ),
-                          ],
+                          ),
                         ),
                       ],
                     ),
-                    height: 50,
+                    height: 48,
                     width: 250,
                     decoration: BoxDecoration(
                       color: ColorPlants.whiteSkull,
+                      // border: Border.all(color: ColorPlants.greenDark),
                       borderRadius: BorderRadius.all(
-                        Radius.circular(30),
+                        Radius.circular(
+                          30,
+                        ),
                       ),
                     ),
                   ),
