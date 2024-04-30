@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/Pages/home/widget/form_search_home_widget.dart';
 import 'package:green_garden/Pages/home/widget/header_home_widget.dart';
 import 'package:green_garden/auth/register/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
@@ -19,16 +20,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-            )
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -38,7 +29,11 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 50,
               ),
-              HeaderHomeWidget()
+              HeaderHomeWidget(),
+              SizedBox(
+                height: 20,
+              ),
+              FormSearchHomeWidget(),
             ],
           ),
         ),
