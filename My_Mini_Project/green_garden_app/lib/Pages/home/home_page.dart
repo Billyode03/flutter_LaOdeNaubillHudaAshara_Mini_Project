@@ -4,6 +4,7 @@ import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/home/widget/form_search_home_widget.dart';
 import 'package:green_garden/Pages/home/widget/header_home_widget.dart';
+import 'package:green_garden/Pages/home/widget/plant_list_menu_home.dart';
 import 'package:green_garden/auth/register/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
@@ -34,6 +35,10 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               FormSearchHomeWidget(),
+              SizedBox(
+                height: 20,
+              ),
+              PlantListMenuHome(),
             ],
           ),
         ),

@@ -37,24 +37,24 @@ class IconConstant {
     color: ColorPlants.greenDark,
     size: 25,
   );
-  static Icon virusIcon = Icon(
-    Icons.sunny,
-    color: ColorPlants.greenDark,
-    size: 25,
+  static Image virusIcon = Image.asset(
+    'assets/icons/disease.png',
+    height: 25,
+    width: 25,
   );
-  static Icon articleIcon = Icon(
-    Icons.newspaper_rounded,
-    color: ColorPlants.greenDark,
-    size: 25,
+  static Image articleIcon = Image.asset(
+    'assets/icons/article.png',
+    height: 25,
+    width: 25,
   );
-  static Icon favoriteIcon = Icon(
-    Icons.favorite,
-    color: ColorPlants.greenDark,
-    size: 25,
+  static Image ideaIcon = Image.asset(
+    'assets/icons/idea.png',
+    height: 25,
+    width: 25,
   );
-  static Icon tipsIcon = Icon(
-    Icons.tips_and_updates,
-    color: ColorPlants.greenDark,
-    size: 25,
+  static Image loveIcon = Image.asset(
+    'assets/icons/love.png',
+    height: 25,
+    width: 25,
   );
 }

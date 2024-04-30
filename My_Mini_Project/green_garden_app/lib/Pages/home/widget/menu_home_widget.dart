@@ -4,11 +4,11 @@ import 'package:green_garden/Constant/icon_constant.dart';
 
 class MenuHomeWidget extends StatelessWidget {
   final String title;
-  final IconData iconsData;
+  final Image iconConstant;
   const MenuHomeWidget({
     super.key,
     required this.title,
-    required this.iconsData,
+    required this.iconConstant,
   });
 
   @override
@@ -19,8 +19,17 @@ class MenuHomeWidget extends StatelessWidget {
           height: 56,
           width: 64,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),color: ColorPlants.whiteSkull,
-          ),child: Icon(IconConstant.)
+            borderRadius: BorderRadius.circular(16),
+            color: ColorPlants.whiteSkull,
+          ),
+          child: iconConstant,
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          title,
+          style: TextStyle(color: ColorPlants.whiteSkull),
         ),
       ],
     );
