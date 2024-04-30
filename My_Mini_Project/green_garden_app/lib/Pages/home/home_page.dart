@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage>
                 height: 20,
               ),
               PlantListMenuHome(),
-              _innerBannerSlider(200, 100),
+              _innerBannerSlider(400, width),
             ],
           ),
         ),
@@ -93,13 +93,8 @@ class _HomePageState extends State<HomePage>
     return MotionTabBar(
       controller: _motionTabBarController,
       initialSelectedTab: "Home",
-      labels: const ["Dashboard", "Home", "Profile", "Settings"],
-      icons: const [
-        Icons.dashboard,
-        Icons.home,
-        Icons.people_alt,
-        Icons.settings
-      ],
+      labels: const ["Home", "Profile", "Settings"],
+      icons: const [Icons.home, Icons.people_alt, Icons.settings],
       tabSize: 50,
       tabBarHeight: 55,
       textStyle: const TextStyle(
@@ -125,16 +120,13 @@ class _HomePageState extends State<HomePage>
     return Column(
       children: [
         /// Slider Style
-        const Padding(
-          padding: EdgeInsets.all(15),
-          child: Text(
-            "Inner Indicator Style",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-          ),
-        ),
-
         SizedBox(
-          height: height * .25,
+          height: 20,
+        ),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(30))),
+          height: height * .35,
           width: width,
           child: Stack(
             alignment: Alignment.center,
@@ -187,7 +179,7 @@ class _HomePageState extends State<HomePage>
                         },
                         child: AnimatedContainer(
                           width: isSelected ? 55 : 17,
-                          height: 10,
+                          height: 5,
                           margin: EdgeInsets.symmetric(
                               horizontal: isSelected ? 6 : 3),
                           decoration: BoxDecoration(

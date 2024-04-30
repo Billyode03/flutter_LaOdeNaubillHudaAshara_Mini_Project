@@ -62,6 +62,11 @@ flutter:
     - assets/icons/disease.png
     - assets/icons/idea.png
     - assets/icons/love.png
+    - assets/carousel/actPlant.png
+    - assets/carousel/environment.jpg
+    - assets/carousel/environment2.png
+    - assets/carousel/happyEarthDay.png
+    - assets/carousel/planting.jpg
     - assets/plant1.png
     - assets/plant2.png
     - assets/plant3.png
