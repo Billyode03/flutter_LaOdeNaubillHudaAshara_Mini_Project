@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/home_page.dart';
-import 'package:green_garden/auth/forgot_psw_page.dart';
-import 'package:green_garden/auth/register_page.dart';
+import 'package:green_garden/auth/login/login_pages.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,25 +21,23 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Center(
+              child: Image.asset(
+                'assets/regisPic.png',
+              ),
+            ),
             SizedBox(
               height: 30,
             ),
-            Center(
-              child: Image.asset(
-                'assets/loginPic.png',
-                width: 280,
-                height: 280,
-              ),
-            ),
             Text(
-              'Welcome Back',
+              'Register',
               style: TextStyleUsable.interLogin,
             ),
             SizedBox(
               height: 10,
             ),
             Text(
-              'Login to your account',
+              'Create Your Account',
               style: TextStyleUsable.interRegular,
             ),
             SizedBox(
@@ -55,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                   enable: true),
             ),
             SizedBox(
-              height: 25,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -64,44 +60,41 @@ class _LoginPageState extends State<LoginPage> {
                   prefixIcon: IconConstant.passwordIcon,
                   enable: true),
             ),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
-              padding: EdgeInsets.only(left: 190),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ForgetPasswordPage(),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Forget Password ??',
-                  style: TextStyleUsable.interRegularFP,
-                ),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: ReusableWidgetTextField(
+                  hintText: 'Confirm Password',
+                  prefixIcon: IconConstant.passwordIcon,
+                  enable: true),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: Text(
+                'By registering, your are agreeing to our terms of use and Privaci Policy',
+                style: TextStyleUsable.interRegular,
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(
-              height: 63,
+              height: 70,
             ),
             Center(
               child: ReusableButtonSubmit(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
-                  },
-                  text: 'Sign In',
+                  onTap: () {},
+                  text: 'Sign Up',
                   textStyle: TextStyleUsable.interButton),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't have an account ? ",
+                  "Already have an account ? ",
                   style: TextStyleUsable.interRegular,
                 ),
                 TextButton(
@@ -109,12 +102,12 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RegisterPage(),
+                        builder: (context) => LoginPage(),
                       ),
                     );
                   },
                   child: Text(
-                    'Sign Up',
+                    'Sign in',
                     style: TextStyleUsable.interRegularTwo,
                   ),
                 ),

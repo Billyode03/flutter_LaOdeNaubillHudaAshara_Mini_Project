@@ -16,6 +16,14 @@ class TextStyleUsable {
     color: ColorPlants.whiteSkull,
   );
 
+  // Text Judul Atas
+  static TextStyle interOpen = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
   //Text untuk Hint TEXTFIELD
   static TextStyle interTextField = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),

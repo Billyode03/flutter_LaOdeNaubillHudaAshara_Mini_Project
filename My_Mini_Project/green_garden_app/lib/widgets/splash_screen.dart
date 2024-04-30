@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/auth/login_pages.dart';
-import 'package:green_garden/Pages/onScreenBoard.dart';
+import 'package:green_garden/auth/login/login_pages.dart';
+import 'package:green_garden/Pages/Opening/onScreenBoard.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatelessWidget {
