@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Text(
               'Find a plant want you know',
-              style: TextStyleUsable.interLoginTwo,
+              style: TextStyleUsable.interLogin,
             ),
           ],
         ),

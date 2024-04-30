@@ -8,6 +8,7 @@ class TextStyleUsable {
     color: ColorPlants.whiteSecond,
   );
 
+  // Text Judul Page
   static TextStyle interLogin = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 45,
@@ -15,14 +16,16 @@ class TextStyleUsable {
     color: ColorPlants.whiteSkull,
   );
 
-  static TextStyle interLoginTwo = TextStyle(
+  //Text untuk Hint TEXTFIELD
+  static TextStyle interTextField = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.normal,
-    color: ColorPlants.whiteSkull,
+    color: ColorPlants.greenDark,
   );
 
+  //Text jika button warna putih
   static TextStyle interButton = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 20,
@@ -31,6 +34,7 @@ class TextStyleUsable {
     color: ColorPlants.greenDark,
   );
 
+  //Text jika button warna Hijau
   static TextStyle interButton1 = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 20,
@@ -39,12 +43,15 @@ class TextStyleUsable {
     color: ColorPlants.whiteSkull,
   );
 
+  //Text untuk pengantar widget hijau
   static TextStyle interRegular = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,
     fontWeight: FontWeight.normal,
     color: ColorPlants.whiteSkull,
   );
+
+  //Text untuk pengantar widget BG putih
   static TextStyle interRegularGreen = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,
@@ -52,14 +59,7 @@ class TextStyleUsable {
     color: ColorPlants.greenDark,
   );
 
-  static TextStyle interRegularThree = TextStyle(
-    fontFamily: GoogleFonts.inter.toString(),
-    fontSize: 15,
-    fontWeight: FontWeight.normal,
-    color: ColorPlants.grey,
-  );
-
-  // Untuk tulisan Sign in/up
+  // Untuk tulisan Sign in/up dengan garis bawah
   static TextStyle interRegularTwo = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 17,
@@ -84,13 +84,6 @@ class TextStyleUsable {
     color: ColorPlants.greenDark,
   );
 
-  static TextStyle interRegularFour = TextStyle(
-    fontFamily: GoogleFonts.inter.toString(),
-    fontSize: 45,
-    fontWeight: FontWeight.bold,
-    color: ColorPlants.whiteSkull,
-  );
-
   static TextStyle interOnScreenOne = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,
@@ -102,5 +95,12 @@ class TextStyleUsable {
     fontSize: 15,
     fontWeight: FontWeight.normal,
     color: ColorPlants.greenDark,
+  );
+
+  static TextStyle interSplashScreen = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 45,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
   );
 }

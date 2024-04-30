@@ -44,25 +44,25 @@ class ReusableWidgetTextField extends StatelessWidget {
       controller: controller,
       validator: validator,
       decoration: InputDecoration(
-          errorText: errorText,
-          hintText: hintText,
-          enabled: enable,
-          prefixText: prefiText,
-          prefixIcon: prefixIcon,
-          filled: true,
-          labelText: labelText,
-          focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1)),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-          fillColor: ColorPlants.whiteSkull,
-          hintStyle: TextStyleUsable.interLoginTwo,
-          disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
-              ),
-              borderSide: BorderSide.none),
-          prefixStyle: TextStyleUsable.interLoginTwo),
+        errorText: errorText,
+        hintText: hintText,
+        enabled: enable,
+        prefixText: prefiText,
+        prefixIcon: prefixIcon,
+        filled: true,
+        labelText: labelText,
+        focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        fillColor: ColorPlants.whiteSkull,
+        hintStyle: TextStyleUsable.interTextField,
+        disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+            borderSide: BorderSide.none),
+      ),
     );
   }
 }

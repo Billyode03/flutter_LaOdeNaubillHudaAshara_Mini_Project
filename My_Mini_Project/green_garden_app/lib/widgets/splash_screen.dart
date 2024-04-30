@@ -25,7 +25,7 @@ class SplashScreen extends StatelessWidget {
           SizedBox(height: 10),
           Text(
             "Green Garden",
-            style: TextStyleUsable.interRegularFour,
+            style: TextStyleUsable.interSplashScreen,
           ),
         ],
       ),
