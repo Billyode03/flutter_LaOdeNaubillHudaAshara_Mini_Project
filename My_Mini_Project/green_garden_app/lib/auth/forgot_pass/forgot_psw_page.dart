@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
@@ -14,6 +15,35 @@ class ForgetPasswordPage extends StatefulWidget {
 }
 
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
+  final TextEditingController _emailController = TextEditingController();
+
+  Future passwordReset() async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+        email: _emailController.text.trim(),
+      );
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(
+                  'Password reset link has been sent to the email address'),
+            );
+          });
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(
+                e.message.toString(),
+              ),
+            );
+          });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +83,12 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
-                  hintText: 'Email',
-                  prefixIcon: IconConstant.emailIcon,
-                  enable: true),
+                controller: _emailController,
+                hintText: 'Email',
+                prefixIcon: IconConstant.emailIcon,
+                enable: true,
+                obscureText: false,
+              ),
             ),
             SizedBox(
               height: 25,
@@ -66,12 +99,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
             Center(
               child: ReusableButtonSubmit(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(toRegisterPage: () {  },),
-                      ),
-                    );
+                    passwordReset();
                   },
                   text: 'ٌReset Password',
                   textStyle: TextStyleUsable.interButton),

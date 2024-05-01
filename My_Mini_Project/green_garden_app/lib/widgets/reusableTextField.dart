@@ -8,6 +8,7 @@ class ReusableWidgetTextField extends StatelessWidget {
   final String hintText;
   final String? prefiText;
   final bool enable;
+  final bool obscureText;
   final Function(String)? onChanged;
   final Function(String)? onFieldSumitted;
   final TextEditingController? controller;
@@ -16,6 +17,7 @@ class ReusableWidgetTextField extends StatelessWidget {
   final String? labelText;
   final TextInputType keyboardType;
   final Icon? prefixIcon;
+  // bool _isObscured = true;
 
   const ReusableWidgetTextField({
     super.key,
@@ -30,6 +32,7 @@ class ReusableWidgetTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.labelText,
     this.prefixIcon,
+    required this.obscureText,
   });
 
   @override
@@ -43,6 +46,7 @@ class ReusableWidgetTextField extends StatelessWidget {
       onChanged: onChanged,
       controller: controller,
       validator: validator,
+      // obscureText: _isObscured && obscureText,
       decoration: InputDecoration(
         errorText: errorText,
         hintText: hintText,
@@ -51,6 +55,15 @@ class ReusableWidgetTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         filled: true,
         labelText: labelText,
+        // suffixIcon: obscureText
+        //     ? IconButton(
+        //         onPressed: () {
+
+        //         },
+        //         icon: Icon(
+        //           _isObscured ? Icons.visibility : Icons.visibility_off,
+        //         ))
+        //     : null,
         focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),

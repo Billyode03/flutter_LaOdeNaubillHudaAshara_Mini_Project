@@ -21,10 +21,38 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  String? _errorMessage;
+
   Future _signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim());
+    final email = _emailController.text.trim();
+    final pass = _passwordController.text.trim();
+
+    //Validasi Inputan
+    if (email.isEmpty || pass.isEmpty) {
+      setState(() {
+        _errorMessage = "Please enter email and password";
+        print("$_errorMessage");
+      });
+    }
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        _errorMessage = e.message;
+      });
+    }
+  }
+
+  void _showSnackBarMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 5),
+        backgroundColor: Colors.red,
+      ),
+    );
   }
 
   @override
@@ -68,10 +96,12 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
-                  controller: _emailController,
-                  hintText: 'Email',
-                  prefixIcon: IconConstant.emailIcon,
-                  enable: true),
+                controller: _emailController,
+                hintText: 'Email',
+                prefixIcon: IconConstant.emailIcon,
+                enable: true,
+                obscureText: false,
+              ),
             ),
             SizedBox(
               height: 25,
@@ -79,10 +109,12 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
-                  controller: _passwordController,
-                  hintText: 'Password',
-                  prefixIcon: IconConstant.passwordIcon,
-                  enable: true),
+                controller: _passwordController,
+                hintText: 'Password',
+                prefixIcon: IconConstant.passwordIcon,
+                enable: true,
+                obscureText: true,
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 190),
@@ -107,13 +139,7 @@ class _LoginPageState extends State<LoginPage> {
             Center(
               child: ReusableButtonSubmit(
                   onTap: () {
-                    _signIn;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                    _signIn();
                   },
                   text: 'Sign In',
                   textStyle: TextStyleUsable.interButton),
@@ -134,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                           toLoginPage: () {},
                         ),
                       ),
-                    ); 
+                    );
                   },
                   child: Text(
                     'Sign Up',

@@ -79,10 +79,12 @@ class _RegisterPageState extends State<RegisterPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
-                  controller: _emailController,
-                  hintText: 'Email',
-                  prefixIcon: IconConstant.emailIcon,
-                  enable: true),
+                controller: _emailController,
+                hintText: 'Email',
+                prefixIcon: IconConstant.emailIcon,
+                enable: true,
+                obscureText: false,
+              ),
             ),
             SizedBox(
               height: 20,
@@ -93,7 +95,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: _passwordController,
                   hintText: 'Password',
                   prefixIcon: IconConstant.passwordIcon,
-                  enable: true),
+                  enable: true,
+                  obscureText: true),
             ),
             SizedBox(
               height: 20,
@@ -104,7 +107,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: _confirmPassController,
                   hintText: 'Confirm Password',
                   prefixIcon: IconConstant.passwordIcon,
-                  enable: true),
+                  enable: true,
+                  obscureText: true),
             ),
             SizedBox(
               height: 20,

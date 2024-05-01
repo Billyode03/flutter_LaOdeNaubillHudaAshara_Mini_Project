@@ -89,7 +89,7 @@ class TextStyleUsable {
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 15,
     fontWeight: FontWeight.normal,
-    color: ColorPlants.greyColor3.withOpacity(0.8),
+    color: ColorPlants.greyColor3,
     decoration: TextDecoration.underline,
   );
 
