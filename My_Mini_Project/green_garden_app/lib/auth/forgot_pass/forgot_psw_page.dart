@@ -102,7 +102,8 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     passwordReset();
                   },
                   text: 'ٌReset Password',
-                  textStyle: TextStyleUsable.interButton),
+                  textStyle: TextStyleUsable.interButton,
+                  bgColor: ColorPlants.whiteSkull,),
             )
           ],
         ),

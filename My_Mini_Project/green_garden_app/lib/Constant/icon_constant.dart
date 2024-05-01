@@ -37,6 +37,23 @@ class IconConstant {
     color: ColorPlants.greenDark,
     size: 25,
   );
+  static Icon peopleIcon = Icon(
+    Icons.people,
+    color: ColorPlants.whiteSkull,
+    size: 25,
+  );
+  static Icon wateringIcon = Icon(
+    Icons.water_drop,
+    color: ColorPlants.whiteSkull,
+    size: 25,
+  );
+  static Icon antusiatIcon = Icon(
+    Icons.stacked_bar_chart,
+    color: ColorPlants.whiteSkull,
+    size: 25,
+  );
+
+  // ICON FROM IMAGE
   static Image virusIcon = Image.asset(
     'assets/icons/disease.png',
     height: 25,

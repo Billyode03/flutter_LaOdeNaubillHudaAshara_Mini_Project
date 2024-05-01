@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:green_garden/Constant/text_constant.dart';
 
 class ProfileImage extends StatefulWidget {
   const ProfileImage({super.key});
@@ -11,6 +11,18 @@ class ProfileImage extends StatefulWidget {
 class _ProfileImageState extends State<ProfileImage> {
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar();
+    return Column(children: [
+      CircleAvatar(
+        radius: 60,
+        backgroundImage: AssetImage('assets/syns.jpg'),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        'Naubil Huda',
+        style: TextStyleUsable.interRegularWhiteTwo,
+      ),
+    ]);
   }
 }

@@ -127,4 +127,27 @@ class TextStyleUsable {
     fontWeight: FontWeight.bold,
     color: ColorPlants.whiteSkull,
   );
+
+  /* PROFILE PAGE */
+  //Text untuk Header Desc Putih
+  static TextStyle interRegularWhiteTwo = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
+  static TextStyle interRegularBlackThree = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.blackColor,
+  );
+
+  static TextStyle interRegularBlack = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    color: ColorPlants.blackColor,
+  );
 }

@@ -160,7 +160,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     );
                   },
                   text: 'Sign Up',
-                  textStyle: TextStyleUsable.interButton),
+                  textStyle: TextStyleUsable.interButton,
+                  bgColor: ColorPlants.whiteSkull),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

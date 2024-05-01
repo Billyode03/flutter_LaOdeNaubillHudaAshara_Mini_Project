@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                     _signIn();
                   },
                   text: 'Sign In',
-                  textStyle: TextStyleUsable.interButton),
+                  textStyle: TextStyleUsable.interButton,bgColor: ColorPlants.whiteSkull),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

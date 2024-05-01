@@ -64,6 +64,8 @@ flutter:
     - assets/icons/disease.png
     - assets/icons/idea.png
     - assets/icons/love.png
+    - assets/icons/plant.png
+    - assets/icons/watering.png
     - assets/carousel/actPlant.png
     - assets/carousel/environment.jpg
     - assets/carousel/environment2.png
@@ -77,6 +79,7 @@ flutter:
     - assets/forgetPic.png
     - assets/regisPic.png
     - assets/loginPic.png
+    - assets/syns.jpg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

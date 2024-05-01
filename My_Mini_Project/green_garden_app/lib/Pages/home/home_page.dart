@@ -10,6 +10,7 @@ import 'package:green_garden/Pages/home/widget/header/header_home_widget.dart';
 import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.dart';
 import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
 import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
+import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
 import 'package:green_garden/auth/register/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
@@ -119,6 +120,14 @@ class _HomePageState extends State<HomePage>
       onTabItemSelected: (int value) {
         setState(() {
           _motionTabBarController!.index = value;
+          if (value == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MyProfilePage(),
+              ),
+            );
+          }
         });
       },
     );
