@@ -1,19 +1,58 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/Pages/home/home_page.dart';
 import 'package:green_garden/auth/login/login_pages.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  const RegisterPage({super.key, required this.toLoginPage});
+  final VoidCallback toLoginPage;
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPassController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPassController.dispose();
+    super.dispose();
+  }
+
+  // Future _signUp() async {
+  //   if (passwordConfirmed()) {
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //       email: _emailController.text.trim(),
+  //       password: _passwordController.text.trim(),
+  //     );
+  //   }
+  // }
+  Future _signUp() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() == _confirmPassController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
+                  controller: _emailController,
                   hintText: 'Email',
                   prefixIcon: IconConstant.emailIcon,
                   enable: true),
@@ -56,6 +96,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
+                  controller: _passwordController,
                   hintText: 'Password',
                   prefixIcon: IconConstant.passwordIcon,
                   enable: true),
@@ -63,13 +104,14 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: ReusableWidgetTextField(
-                  hintText: 'Confirm Password',
-                  prefixIcon: IconConstant.passwordIcon,
-                  enable: true),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 25),
+            //   child: ReusableWidgetTextField(
+            //       controller: _confirmPassController,
+            //       hintText: 'Confirm Password',
+            //       prefixIcon: IconConstant.passwordIcon,
+            //       enable: true),
+            // ),
             SizedBox(
               height: 20,
             ),
@@ -86,7 +128,15 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             Center(
               child: ReusableButtonSubmit(
-                  onTap: () {},
+                  onTap: () {
+                    _signUp();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                  },
                   text: 'Sign Up',
                   textStyle: TextStyleUsable.interButton),
             ),
@@ -102,7 +152,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                        builder: (context) => LoginPage(
+                          toRegisterPage: () {},
+                        ),
                       ),
                     );
                   },

@@ -69,7 +69,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                        builder: (context) => LoginPage(toRegisterPage: () {  },),
                       ),
                     );
                   },

@@ -10,7 +10,8 @@ import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({super.key, required this.toRegisterPage});
+  final VoidCallback toRegisterPage;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -129,9 +130,11 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RegisterPage(),
+                        builder: (context) => RegisterPage(
+                          toLoginPage: () {},
+                        ),
                       ),
-                    );
+                    ); 
                   },
                   child: Text(
                     'Sign Up',

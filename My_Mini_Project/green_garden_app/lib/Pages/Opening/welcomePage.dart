@@ -77,7 +77,9 @@ class _WelcomePageState extends State<WelcomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
+                                  builder: (context) => LoginPage(
+                                    toRegisterPage: () {},
+                                  ),
                                 ),
                               );
                             },
@@ -94,7 +96,9 @@ class _WelcomePageState extends State<WelcomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => RegisterPage(),
+                                  builder: (context) => RegisterPage(
+                                    toLoginPage: () {},
+                                  ),
                                 ),
                               );
                             },
