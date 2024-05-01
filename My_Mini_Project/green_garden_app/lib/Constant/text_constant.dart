@@ -67,6 +67,14 @@ class TextStyleUsable {
     color: ColorPlants.greenDark,
   );
 
+  //Text untuk Header Desc
+  static TextStyle interRegularGreenTwo = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.greenDark,
+  );
+
   // Untuk tulisan Sign in/up dengan garis bawah
   static TextStyle interRegularTwo = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),

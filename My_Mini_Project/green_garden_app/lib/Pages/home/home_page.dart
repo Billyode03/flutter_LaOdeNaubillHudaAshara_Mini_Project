@@ -8,6 +8,7 @@ import 'package:green_garden/Pages/home/widget/carousel/imageCarousel.dart';
 import 'package:green_garden/Pages/home/widget/carousel/image_viewer.dart';
 import 'package:green_garden/Pages/home/widget/header/header_home_widget.dart';
 import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.dart';
+import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
 import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
 import 'package:green_garden/auth/register/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
@@ -63,26 +64,33 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              HeaderHomeWidget(),
-              SizedBox(
-                height: 20,
-              ),
-              FormSearchHomeWidget(),
-              SizedBox(
-                height: 20,
-              ),
-              PlantListMenuHome(),
-              _innerBannerSlider(400, width),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: HeaderHomeWidget()),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: FormSearchHomeWidget()),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: PlantListMenuHome()),
+            _innerBannerSlider(400, width),
+            SizedBox(
+              height: 20,
+            ),
+            // PlantListWidget(),
+          ],
         ),
       ),
       bottomNavigationBar: _buildBottomNavigationBar(),
@@ -93,8 +101,8 @@ class _HomePageState extends State<HomePage>
     return MotionTabBar(
       controller: _motionTabBarController,
       initialSelectedTab: "Home",
-      labels: const ["Home", "Profile", "Settings"],
-      icons: const [Icons.home, Icons.people_alt, Icons.settings],
+      labels: const ["Home", "Profile"],
+      icons: const [Icons.home, Icons.people_alt],
       tabSize: 50,
       tabBarHeight: 55,
       textStyle: const TextStyle(
