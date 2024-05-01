@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "781895858977",
+    "project_id": "green-garden-app",
+    "storage_bucket": "green-garden-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781895858977:android:873836cc71d37007b15c60",
+        "android_client_info": {
+          "package_name": "com.example.green_garden"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrDjxyRWJc2NboHPgWDKx3-ie5M1LgRig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
@@ -16,6 +17,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  Future _signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim());
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
+                  controller: _emailController,
                   hintText: 'Email',
                   prefixIcon: IconConstant.emailIcon,
                   enable: true),
@@ -60,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
+                  controller: _passwordController,
                   hintText: 'Password',
                   prefixIcon: IconConstant.passwordIcon,
                   enable: true),
@@ -87,6 +106,7 @@ class _LoginPageState extends State<LoginPage> {
             Center(
               child: ReusableButtonSubmit(
                   onTap: () {
+                    _signIn;
                     Navigator.push(
                       context,
                       MaterialPageRoute(
