@@ -30,19 +30,13 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
-  // Future _signUp() async {
-  //   if (passwordConfirmed()) {
-  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //       email: _emailController.text.trim(),
-  //       password: _passwordController.text.trim(),
-  //     );
-  //   }
-  // }
   Future _signUp() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+    }
   }
 
   bool passwordConfirmed() {
@@ -104,14 +98,14 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 20,
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 25),
-            //   child: ReusableWidgetTextField(
-            //       controller: _confirmPassController,
-            //       hintText: 'Confirm Password',
-            //       prefixIcon: IconConstant.passwordIcon,
-            //       enable: true),
-            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: ReusableWidgetTextField(
+                  controller: _confirmPassController,
+                  hintText: 'Confirm Password',
+                  prefixIcon: IconConstant.passwordIcon,
+                  enable: true),
+            ),
             SizedBox(
               height: 20,
             ),
@@ -128,8 +122,8 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             Center(
               child: ReusableButtonSubmit(
-                  onTap: () {
-                    _signUp();
+                  onTap: () async {
+                    await _signUp();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
