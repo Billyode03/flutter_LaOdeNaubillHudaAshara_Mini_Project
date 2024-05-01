@@ -10,7 +10,7 @@ import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key, required this.toLoginPage});
+  const RegisterPage({Key? key, required this.toLoginPage});
   final VoidCallback toLoginPage;
 
   @override
@@ -32,11 +32,35 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future _signUp() async {
     if (passwordConfirmed()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
+      try {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomePage(),
+          ),
+        );
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          _showSnackBarMessage("Pasword should be at least 6 Characters");
+        } else {
+          _showSnackBarMessage(e.message ?? "Registration failed");
+        }
+      }
     }
+  }
+
+  void _showSnackBarMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 5),
+        backgroundColor: Colors.red,
+      ),
+    );
   }
 
   bool passwordConfirmed() {

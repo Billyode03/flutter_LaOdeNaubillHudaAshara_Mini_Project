@@ -33,6 +33,8 @@ class _LoginPageState extends State<LoginPage> {
         _errorMessage = "Please enter email and password";
         print("$_errorMessage");
       });
+      _showSnackBarMessage(_errorMessage!);
+      return;
     }
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -42,7 +44,11 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _errorMessage = e.message;
       });
+      _showSnackBarMessage(_errorMessage!);
+      return;
     }
+    //Login Succes
+    _showSnackBarMessage("Login Success");
   }
 
   void _showSnackBarMessage(String message) {
