@@ -27,6 +27,7 @@ android {
     namespace "com.example.green_garden"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion "25.1.8937393" 
+    minSdkVersion 19
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

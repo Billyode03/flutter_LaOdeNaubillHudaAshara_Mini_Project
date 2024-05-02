@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Pages/article_page/widget/article_header_plant.dart';
+import 'package:green_garden/Pages/article_page/widget/article_list_article_plant.dart';
 
 class ArticlePlantPage extends StatefulWidget {
   const ArticlePlantPage({super.key});
@@ -24,11 +25,19 @@ class WebArticlePlantState extends State<ArticlePlantPage> {
           children: [
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              child: ArticleHeaderPlant(),
+              child: Column(
+                children: [
+                  ArticleHeaderPlant(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 20,
             ),
+            ListArticlePlant(),
           ],
         ),
       ),
