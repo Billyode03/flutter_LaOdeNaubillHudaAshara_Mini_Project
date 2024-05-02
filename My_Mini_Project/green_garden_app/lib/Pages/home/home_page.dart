@@ -35,26 +35,6 @@ class _HomePageState extends State<HomePage>
   int innerCurrentPage = 0;
   int outerCurrentPage = 0;
 
-  // Mendapatkan data dari API dan mengubahnya menjadi daftar tanaman
-  Future<List<PlantModels>> fetchPlants() async {
-    try {
-      final response = await Dio().get(
-          'https://perenual.com/api/species-list?key=sk-XVnP66274d86ccc3b5224');
-      final List<dynamic> data = response.data;
-      return data.map((plantJson) {
-        return PlantModels(
-          plantId: plantJson['id'],
-          imageURL: plantJson['imageURL'],
-          plantName: plantJson['name'],
-          category: plantJson['category'],
-          price: plantJson['price'].toDouble(),
-        );
-      }).toList();
-    } catch (e) {
-      throw Exception('Failed to load plants: $e');
-    }
-  }
-
   @override
   void initState() {
     innerCarouselController = CarouselController();

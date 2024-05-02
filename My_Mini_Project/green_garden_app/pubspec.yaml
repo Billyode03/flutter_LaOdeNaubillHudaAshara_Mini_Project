@@ -41,6 +41,7 @@ dependencies:
   google_fonts: ^5.1.0
   lottie: ^2.6.0
   motion_tab_bar: ^2.0.4
+  page_transition: ^2.1.0
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
@@ -80,6 +81,7 @@ flutter:
     - assets/forgetPic.png
     - assets/regisPic.png
     - assets/loginPic.png
+    - assets/tree.jpg
     - assets/syns.jpg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
