@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
@@ -12,6 +13,7 @@ import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart
 import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
 import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
 import 'package:green_garden/auth/register/register_page.dart';
+import 'package:green_garden/models/plant.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 import 'package:green_garden/widgets/reusableTextField.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
@@ -32,6 +34,26 @@ class _HomePageState extends State<HomePage>
   late CarouselController outerCarouselController;
   int innerCurrentPage = 0;
   int outerCurrentPage = 0;
+
+  // Mendapatkan data dari API dan mengubahnya menjadi daftar tanaman
+  Future<List<PlantModels>> fetchPlants() async {
+    try {
+      final response = await Dio().get(
+          'https://perenual.com/api/species-list?key=sk-XVnP66274d86ccc3b5224');
+      final List<dynamic> data = response.data;
+      return data.map((plantJson) {
+        return PlantModels(
+          plantId: plantJson['id'],
+          imageURL: plantJson['imageURL'],
+          plantName: plantJson['name'],
+          category: plantJson['category'],
+          price: plantJson['price'].toDouble(),
+        );
+      }).toList();
+    } catch (e) {
+      throw Exception('Failed to load plants: $e');
+    }
+  }
 
   @override
   void initState() {
@@ -90,7 +112,7 @@ class _HomePageState extends State<HomePage>
             SizedBox(
               height: 20,
             ),
-            // PlantListWidget(),
+            PlantListWidget(),
           ],
         ),
       ),
