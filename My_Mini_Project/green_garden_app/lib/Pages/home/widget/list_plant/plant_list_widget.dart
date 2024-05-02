@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/Pages/plant_desc_page/detail_plant_page.dart';
 import 'package:green_garden/models/plant.dart';
 
 class PlantListWidget extends StatefulWidget {
@@ -12,7 +13,6 @@ class PlantListWidget extends StatefulWidget {
 }
 
 class _PlantListWidgetState extends State<PlantListWidget> {
-
   final List<PlantModel> _plantList = [
     PlantModel(
       imageURL: 'assets/tree.jpg',
@@ -44,7 +44,10 @@ class _PlantListWidgetState extends State<PlantListWidget> {
             style: TextStyleUsable.interRegularGreenTwo,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: 20,
+          ),
+          SizedBox(
+            height: 200,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               itemCount: _plantList.length,
@@ -53,14 +56,19 @@ class _PlantListWidgetState extends State<PlantListWidget> {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPlantPage(),
+                      ),
+                    );
                   },
                   child: Container(
                     width: 200,
-                    margin: const EdgeInsets.symmetric(horizontal: 18),
+                    margin: const EdgeInsets.symmetric(horizontal: 98),
                     decoration: BoxDecoration(
                       color: Colors.blue.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     child: Stack(
                       children: [
@@ -89,24 +97,16 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(30),
                             child: Image.asset(
-                              
                               _plantList[index].imageURL,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         Positioned(
-                          left: 20,
+                          left: 65,
                           bottom: 15,
-                          child: Text(
-                            _plantList[index].plantName,
-                            style: TextStyle(
-                              fontFamily: 'YekanBakh',
-                              color: Colors.white70,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          child: Text(_plantList[index].plantName,
+                              style: TextStyleUsable.interRegularWhiteTwo),
                         ),
                       ],
                     ),

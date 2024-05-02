@@ -4,7 +4,9 @@ import 'package:green_garden/Pages/home/home_page.dart';
 import 'package:green_garden/Pages/Opening/onScreenBoard.dart';
 import 'package:green_garden/Pages/Opening/welcomePage.dart';
 import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
+import 'package:green_garden/Pages/plant_desc_page/detail_plant_page.dart';
 import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
+import 'package:green_garden/Service/service.dart';
 import 'package:green_garden/auth/forgot_pass/forgot_psw_page.dart';
 import 'package:green_garden/auth/login/login_pages.dart';
 import 'package:green_garden/auth/register/register_page.dart';
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PlantListWidget(),
+      home: HomePage(),
     );
   }
 }

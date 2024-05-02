@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Pages/article_page/widget/article_header_plant.dart';
 
-class ArticlePlant extends StatefulWidget {
-  const ArticlePlant({super.key});
+class ArticlePlantPage extends StatefulWidget {
+  const ArticlePlantPage({super.key});
 
   @override
-  State<ArticlePlant> createState() => WebArticlePlantState();
+  State<ArticlePlantPage> createState() => WebArticlePlantState();
 }
 
-class WebArticlePlantState extends State<ArticlePlant> {
+class WebArticlePlantState extends State<ArticlePlantPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: ColorPlants.greenDark,
+        elevation: 0,
+      ),
       backgroundColor: ColorPlants.greenDark,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 50,
-            ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               child: ArticleHeaderPlant(),
-              
             ),
             SizedBox(
               height: 20,

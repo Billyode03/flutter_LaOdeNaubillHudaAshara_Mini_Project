@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/Opening/welcomePage.dart';
@@ -18,13 +19,14 @@ class ProfileDataInfo extends StatefulWidget {
 }
 
 class _ProfileDataInfoState extends State<ProfileDataInfo> {
-  Future signOut() async {
+  Future<void> signOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => exit(0),
-        ));
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => WelcomePage()),
+      (Route<dynamic> route) => false,
+    );
+    SystemNavigator.pop(); // Close the app
   }
 
   @override
