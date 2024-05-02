@@ -89,7 +89,7 @@ class _ProfileDataInfoState extends State<ProfileDataInfo> {
             ),
           ),
           SizedBox(
-            height: 50,
+            height: 20,
           ),
           ReusableButtonSubmit(
             onTap: () {

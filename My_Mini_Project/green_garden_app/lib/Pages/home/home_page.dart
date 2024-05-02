@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage>
     innerCarouselController = CarouselController();
     outerCarouselController = CarouselController();
     _motionTabBarController = MotionTabBarController(
-      initialIndex: 1,
-      length: 4,
+      initialIndex: 0,
+      length: 2,
       // animationDuration: Duration(milliseconds: 300),
       vsync: this,
     );
@@ -120,13 +120,19 @@ class _HomePageState extends State<HomePage>
       onTabItemSelected: (int value) {
         setState(() {
           _motionTabBarController!.index = value;
-          if (value == 1) {
+          if (value == 0) {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => MyProfilePage(),
+                builder: (context) => HomePage(),
               ),
             );
+          } else {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyProfilePage(),
+                ));
           }
         });
       },

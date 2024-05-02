@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
 
   String? _errorMessage;
+  String? _successMessage;
 
   Future _signIn() async {
     final email = _emailController.text.trim();
@@ -40,15 +41,19 @@ class _LoginPageState extends State<LoginPage> {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim());
+      _showSnackBarMessage("Login Success");
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
     } on FirebaseAuthException catch (e) {
       setState(() {
         _errorMessage = e.message;
       });
-      _showSnackBarMessage(_errorMessage!);
-      return;
     }
-    //Login Succes
-    _showSnackBarMessage("Login Success");
+    _showSnackBarMessage(_errorMessage!);
   }
 
   void _showSnackBarMessage(String message) {
@@ -148,7 +153,8 @@ class _LoginPageState extends State<LoginPage> {
                     _signIn();
                   },
                   text: 'Sign In',
-                  textStyle: TextStyleUsable.interButton,bgColor: ColorPlants.whiteSkull),
+                  textStyle: TextStyleUsable.interButton,
+                  bgColor: ColorPlants.whiteSkull),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
