@@ -13,6 +13,7 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ,
       backgroundColor: ColorPlants.greenDark,
     );
   }

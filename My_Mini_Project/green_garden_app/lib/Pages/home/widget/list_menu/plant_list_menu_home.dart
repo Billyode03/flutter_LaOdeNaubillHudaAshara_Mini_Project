@@ -37,7 +37,7 @@ class PlantListMenuHome extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DiseasePage(),
+                builder: (context) => DiseasePlantPage(),
               ),
             );
           },

@@ -44,7 +44,9 @@ class _ListArticlePlantState extends State<ListArticlePlant> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => WebViewPage(index + 1,),
+                  builder: (context) => WebViewPage(
+                    index + 1,
+                  ),
                 ),
               );
             },
