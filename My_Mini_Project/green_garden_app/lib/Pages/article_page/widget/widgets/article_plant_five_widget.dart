@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class ArticleOnePlant extends StatefulWidget {
+class ArticleFivePlant extends StatefulWidget {
   @override
   _WebViewExampleState createState() => _WebViewExampleState();
 }
 
-class _WebViewExampleState extends State<ArticleOnePlant> {
+class _WebViewExampleState extends State<ArticleFivePlant> {
   late WebViewController _controller;
-  String _pageTitle = 'https://www.gardencentrescanada.ca/about-us/plant-knowledge';
-  final String _url = 'https://www.gardencentrescanada.ca/about-us/plant-knowledge';
+  String _pageTitle = 'https://gardenbeast.com/';
+  final String _url = 'https://gardenbeast.com/';
 
   @override
   Widget build(BuildContext context) {

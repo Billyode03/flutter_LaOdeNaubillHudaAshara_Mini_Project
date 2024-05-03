@@ -43,7 +43,7 @@ dependencies:
   motion_tab_bar: ^2.0.4
   page_transition: ^2.1.0
   smooth_page_indicator: ^1.1.0
-  webview_flutter: ^4.5.0
+  webview_flutter: ^2.0.9
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -74,6 +74,11 @@ flutter:
     - assets/carousel/environment2.png
     - assets/carousel/happyEarthDay.png
     - assets/carousel/planting.jpg
+    - assets/bannerList/beGarden.png
+    - assets/bannerList/beGreen.png
+    - assets/bannerList/gardenBeast.png
+    - assets/bannerList/tanduria.png
+    - assets/bannerList/fineGarden.png
     - assets/plant1.png
     - assets/plant2.png
     - assets/plant3.png

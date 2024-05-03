@@ -35,9 +35,11 @@ class WebArticlePlantState extends State<ArticlePlantPage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 600,
+              child: ListArticlePlant(
+                onItemSelected: (int index) {},
+              ),
             ),
-            ListArticlePlant(),
           ],
         ),
       ),

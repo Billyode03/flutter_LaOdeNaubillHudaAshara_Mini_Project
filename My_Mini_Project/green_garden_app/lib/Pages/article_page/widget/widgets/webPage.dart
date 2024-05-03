@@ -1,21 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class ArticleOnePlant extends StatefulWidget {
+class WebViewPage extends StatefulWidget {
+  final int pageIndex;
+
+  WebViewPage(this.pageIndex);
+
   @override
-  _WebViewExampleState createState() => _WebViewExampleState();
+  _WebViewPageState createState() => _WebViewPageState();
 }
 
-class _WebViewExampleState extends State<ArticleOnePlant> {
+class _WebViewPageState extends State<WebViewPage> {
   late WebViewController _controller;
-  String _pageTitle = 'https://www.gardencentrescanada.ca/about-us/plant-knowledge';
-  final String _url = 'https://www.gardencentrescanada.ca/about-us/plant-knowledge';
+  late String _url;
+
+  @override
+  void initState() {
+    super.initState();
+    _url = getUrlForPageIndex(widget.pageIndex);
+  }
+
+  String getUrlForPageIndex(int index) {
+    switch (index) {
+      case 1:
+        return 'https://www.gardencentrescanada.ca/about-us/plant-knowledge';
+      case 2:
+        return 'https://www.finegardening.com/article/growing-plants-and-knowledge';
+      case 3:
+        return 'https://be.green/en/blog/category/plant-knowledge';
+      case 4:
+        return 'https://tanduria.co/';
+      case 5:
+        return 'https://gardenbeast.com/';
+      default:
+        return 'https://gardenbeast.com/';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_pageTitle),
+        title: Text('Web Page ${widget.pageIndex}'),
         actions: [
           IconButton(
             onPressed: () async {
@@ -37,6 +63,7 @@ class _WebViewExampleState extends State<ArticleOnePlant> {
       ),
       body: WebView(
         initialUrl: _url,
+        javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (WebViewController controller) {
           _controller = controller;
         },

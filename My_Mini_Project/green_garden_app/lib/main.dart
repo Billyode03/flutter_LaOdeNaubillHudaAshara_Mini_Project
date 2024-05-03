@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Pages/article_page/article_web_plant.dart';
+// import 'package:green_garden/Pages/article_page/widget/article_detail_plant_one.dart';
+import 'package:green_garden/Pages/article_page/widget/article_list_article_plant.dart';
+import 'package:green_garden/Pages/article_page/widget/widgets/article_plant_one_widget.dart';
 import 'package:green_garden/Pages/home/home_page.dart';
 import 'package:green_garden/Pages/Opening/onScreenBoard.dart';
 import 'package:green_garden/Pages/Opening/welcomePage.dart';
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Articl(),
+      home: SplashScreen(),
     );
   }
 }
