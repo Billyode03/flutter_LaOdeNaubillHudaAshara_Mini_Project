@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:green_garden/Constant/color_constant.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPage extends StatefulWidget {
   final int pageIndex;
 
-  WebViewPage(this.pageIndex);
-
+  WebViewPage(
+    this.pageIndex,
+  );
   @override
   _WebViewPageState createState() => _WebViewPageState();
 }
@@ -13,11 +15,13 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPageState extends State<WebViewPage> {
   late WebViewController _controller;
   late String _url;
+  late String _pageTitle;
 
   @override
   void initState() {
     super.initState();
     _url = getUrlForPageIndex(widget.pageIndex);
+    _pageTitle = getWebPageTitle(_url); // Memperbarui judul berdasarkan URL
   }
 
   String getUrlForPageIndex(int index) {
@@ -37,27 +41,26 @@ class _WebViewPageState extends State<WebViewPage> {
     }
   }
 
+  String getWebPageTitle(String url) {
+    // Mengambil judul dari URL
+    Uri uri = Uri.parse(url);
+    String host = uri.host;
+    return host; // Menggunakan host sebagai judul
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Web Page ${widget.pageIndex}'),
+        backgroundColor: ColorPlants.greenDark,
+        title: Text(_pageTitle),
         actions: [
           IconButton(
-            onPressed: () async {
-              if (await _controller.canGoBack()) {
-                _controller.goBack();
-              }
+            onPressed: () {
+              _controller
+                  .loadUrl(_url); // Reloads the WebView with the initial URL
             },
-            icon: Icon(Icons.arrow_back),
-          ),
-          IconButton(
-            onPressed: () async {
-              if (await _controller.canGoForward()) {
-                _controller.goForward();
-              }
-            },
-            icon: Icon(Icons.arrow_forward),
+            icon: Icon(Icons.refresh),
           ),
         ],
       ),
@@ -67,12 +70,6 @@ class _WebViewPageState extends State<WebViewPage> {
         onWebViewCreated: (WebViewController controller) {
           _controller = controller;
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _controller.loadUrl(_url); // Reloads the WebView with the initial URL
-        },
-        child: Icon(Icons.refresh),
       ),
     );
   }

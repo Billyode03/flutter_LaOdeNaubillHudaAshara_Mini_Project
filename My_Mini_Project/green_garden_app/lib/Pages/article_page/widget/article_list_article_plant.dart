@@ -44,61 +44,57 @@ class _ListArticlePlantState extends State<ListArticlePlant> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => WebViewPage(index + 1),
+                  builder: (context) => WebViewPage(index + 1,),
                 ),
               );
             },
-            child: Container(
-              height: 150,
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                image: DecorationImage(
-                  image: AssetImage(
-                    webPageImages[index],
+            child: Column(
+              children: [
+                Container(
+                  height: 180,
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 3,
+                        offset: Offset(0, 2),
+                      )
+                    ],
                   ),
-                  fit: BoxFit.cover,
+                  child: Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              webPageImages[index],
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 3,
-                    offset: Offset(0, 2),
-                  )
-                ],
-              ),
-              child: Row(
-                children: [
-                  // Container(
-                  //   width: 80,
-                  //   height: 80,
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(30),
-                  //     image: DecorationImage(
-                  //       image: AssetImage(
-                  //         webPageImages[index],
-                  //       ),
-                  //       fit: BoxFit.contain,
-                  //     ),
-                  //   ),
-                  // ),
-                  SizedBox(
-                    width: 16,
+                Center(
+                  child: Text(
+                    webPageNames[index],
+                    style: TextStyleUsable.interRegularWhiteTwo,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
-                  // Expanded(
-                  //   child: Text(
-                  //     webPageNames[index],
-                  //     style: TextStyleUsable.interRegularGreenTwo,
-                  //     overflow: TextOverflow.ellipsis,
-                  //     maxLines: 2,
-                  //   ),
-                  // )
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
             ),
           );
         },

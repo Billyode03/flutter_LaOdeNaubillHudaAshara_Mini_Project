@@ -29,7 +29,7 @@ class WebArticlePlantState extends State<ArticlePlantPage> {
                 children: [
                   ArticleHeaderPlant(),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                 ],
               ),
