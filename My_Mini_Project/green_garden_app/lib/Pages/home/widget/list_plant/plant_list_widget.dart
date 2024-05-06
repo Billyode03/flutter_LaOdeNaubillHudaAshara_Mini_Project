@@ -72,27 +72,6 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                     ),
                     child: Stack(
                       children: [
-                        Positioned(
-                          top: 10,
-                          right: 20,
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: IconButton(
-                              onPressed: () {
-                                // Do something when favorite icon pressed
-                              },
-                              icon: Icon(
-                                Icons.favorite_border_outlined,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
                         Positioned.fill(
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(30),

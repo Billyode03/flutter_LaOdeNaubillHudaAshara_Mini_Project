@@ -4,12 +4,39 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/Pages/Opening/welcomePage.dart';
+import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/Utils/shred_pref.dart';
 import 'package:green_garden/auth/login/login_pages.dart';
 import 'package:green_garden/Pages/Opening/onScreenBoard.dart';
 import 'package:lottie/lottie.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  void checkToken() async {
+    final token = await ShredPref.getToken();
+    final pass = await ShredPref.getPassToken();
+
+    if (token != null) {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomePage(),
+          ));
+    }
+  }
+
+  @override
+  void initState() {
+    checkToken();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

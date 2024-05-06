@@ -10,7 +10,7 @@ class FormSearchHomeWidget extends StatelessWidget {
     return Container(
       height: 50,
       child: TextField(
-        enabled: true,
+        enabled: false,
         decoration: InputDecoration(
           filled: true,
           fillColor: ColorPlants.whiteSkull,

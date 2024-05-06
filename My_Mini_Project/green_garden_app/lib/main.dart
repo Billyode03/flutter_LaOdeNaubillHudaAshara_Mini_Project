@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:green_garden/auth/login/login_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:green_garden/Pages/Opening/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(
-        toRegisterPage: () {},
-      ),
+      home: SplashScreen(),
     );
   }
 }

@@ -50,11 +50,14 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
     try {
+      ShredPref.saveToken(token: _emailController.text);
+      ShredPref.savePass(pass: _passwordController.text);
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim());
       _showSnackBarMessage("Login Success");
-      Navigator.push(
+      setState(() {});
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => HomePage(),
@@ -187,8 +190,6 @@ class _LoginPageState extends State<LoginPage> {
               child: ReusableButtonSubmit(
                   onTap: () {
                     _signIn();
-                    ShredPref.saveToken(token: _emailController.text);
-                    ShredPref.savePass(pass:_passwordController.text);
                   },
                   text: 'Sign In',
                   textStyle: TextStyleUsable.interButton,
