@@ -59,6 +59,27 @@ class TextStyleUsable {
     color: ColorPlants.whiteSkull,
   );
 
+  static TextStyle interRegularError = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    color: Colors.amber,
+  );
+
+  static TextStyle interRegularBold = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
+  static TextStyle interRegularBoldGreen = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.greenDark,
+  );
+
   //Text untuk pengantar widget BG putih
   static TextStyle interRegularGreen = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
@@ -137,6 +158,20 @@ class TextStyleUsable {
     color: ColorPlants.whiteSkull,
   );
 
+  static TextStyle interRegularWhiteOne = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
+  static TextStyle interRegularWhiteThree = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 25,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
+  );
+
   static TextStyle interRegularBlackThree = TextStyle(
     fontFamily: GoogleFonts.inter.toString(),
     fontSize: 18,
@@ -149,5 +184,12 @@ class TextStyleUsable {
     fontSize: 15,
     fontWeight: FontWeight.normal,
     color: ColorPlants.blackColor,
+  );
+  static TextStyle interDescWhite = TextStyle(
+    fontFamily: GoogleFonts.inter.toString(),
+    fontSize: 25,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+    color: ColorPlants.whiteSkull,
   );
 }

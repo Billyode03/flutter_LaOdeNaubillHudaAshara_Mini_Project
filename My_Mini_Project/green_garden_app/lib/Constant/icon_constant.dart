@@ -22,11 +22,6 @@ class IconConstant {
     color: ColorPlants.whiteSkull,
     size: 35,
   );
-  static Icon cycleIcon = Icon(
-    Icons.cyclone,
-    color: ColorPlants.greenDark,
-    size: 25,
-  );
   static Icon waterIcon = Icon(
     Icons.water_drop,
     color: ColorPlants.greenDark,
@@ -73,5 +68,20 @@ class IconConstant {
     'assets/icons/love.png',
     height: 25,
     width: 25,
+  );
+  static Image wateIcon = Image.asset(
+    'assets/icons/water.png',
+    height: 20,
+    width: 20,
+  );
+  static Image cycleIcon = Image.asset(
+    'assets/icons/cycle.png',
+    height: 20,
+    width: 20,
+  );
+  static Image sunnyIcon = Image.asset(
+    'assets/icons/sunny.png',
+    height: 2,
+    width: 2,
   );
 }

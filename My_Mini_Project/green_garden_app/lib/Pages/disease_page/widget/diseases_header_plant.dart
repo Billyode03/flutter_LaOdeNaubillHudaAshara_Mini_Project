@@ -8,11 +8,13 @@ class DiseaseHeaderPlant extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        
         Expanded(
           child: Text(
             'Check Your Plant Diseases ...',
             style: TextStyleUsable.interOpen,
           ),
+          
         ),
       ],
     );

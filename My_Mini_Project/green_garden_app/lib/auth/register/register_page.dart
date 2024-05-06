@@ -22,6 +22,16 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPassController = TextEditingController();
 
+  String? _errorMessage;
+  String? _successMessage;
+
+  String _name = "";
+  String _pass = "";
+  String _passConfirm = "";
+  String? _errorName;
+  String? _errorPass;
+  String? _errorPassConfirm;
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -56,9 +66,9 @@ class _RegisterPageState extends State<RegisterPage> {
   void _showSnackBarMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Center(child: Text(message)),
         duration: Duration(seconds: 5),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black,
       ),
     );
   }
@@ -67,6 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
     if (_passwordController.text.trim() == _confirmPassController.text.trim()) {
       return true;
     } else {
+      _showSnackBarMessage("Password is not matches");
       return false;
     }
   }
@@ -108,19 +119,44 @@ class _RegisterPageState extends State<RegisterPage> {
                 prefixIcon: IconConstant.emailIcon,
                 enable: true,
                 obscureText: false,
+                onChanged: (String value) {
+                  _name = value;
+                  if (_name.isEmpty) {
+                    _errorName == 'Email must not be empty';
+                  } else if (_name.length < 3) {
+                    _errorName == 'Email must be at least 3 characters';
+                  } else {
+                    _errorName = null;
+                  }
+                  setState(() {});
+                },
+                errorText: _errorName,
               ),
-            ),
+            ), 
             SizedBox(
               height: 20,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ReusableWidgetTextField(
-                  controller: _passwordController,
-                  hintText: 'Password',
-                  prefixIcon: IconConstant.passwordIcon,
-                  enable: true,
-                  obscureText: true),
+                controller: _passwordController,
+                hintText: 'Password',
+                prefixIcon: IconConstant.passwordIcon,
+                enable: true,
+                obscureText: true,
+                onChanged: (String value) {
+                  _pass = value;
+                  if (_pass.isEmpty) {
+                    _errorPass == 'Password must not be empty';
+                  } else if (_pass.length < 6) {
+                    _errorPass == 'Password must be at least 6 characters';
+                  } else {
+                    _errorPass = null;
+                  }
+                  setState(() {});
+                },
+                errorText: _errorPass,
+              ),
             ),
             SizedBox(
               height: 20,
@@ -152,12 +188,6 @@ class _RegisterPageState extends State<RegisterPage> {
               child: ReusableButtonSubmit(
                   onTap: () async {
                     await _signUp();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
                   },
                   text: 'Sign Up',
                   textStyle: TextStyleUsable.interButton,

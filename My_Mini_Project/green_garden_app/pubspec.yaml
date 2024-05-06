@@ -42,6 +42,7 @@ dependencies:
   lottie: ^2.6.0
   motion_tab_bar: ^2.0.4
   page_transition: ^2.1.0
+  readmore: ^3.0.0
   smooth_page_indicator: ^1.1.0
   webview_flutter: ^2.0.9
 
@@ -69,6 +70,9 @@ flutter:
     - assets/icons/love.png
     - assets/icons/plant.png
     - assets/icons/watering.png
+    - assets/icons/water.png
+    - assets/icons/cycle.png
+    - assets/icons/sunny.png
     - assets/carousel/actPlant.png
     - assets/carousel/environment.jpg
     - assets/carousel/environment2.png

@@ -55,15 +55,8 @@ class ReusableWidgetTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         filled: true,
         labelText: labelText,
-        // suffixIcon: obscureText
-        //     ? IconButton(
-        //         onPressed: () {
-
-        //         },
-        //         icon: Icon(
-        //           _isObscured ? Icons.visibility : Icons.visibility_off,
-        //         ))
-        //     : null,
+        
+        errorStyle: TextStyleUsable.interRegularError,
         focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),

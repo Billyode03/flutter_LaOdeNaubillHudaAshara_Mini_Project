@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
@@ -24,6 +26,18 @@ class _LoginPageState extends State<LoginPage> {
   String? _errorMessage;
   String? _successMessage;
 
+  String _name = "";
+  String _pass = "";
+  String? _errorName;
+  String? _errorPass;
+
+  bool validationLogin() {
+    return _name != "" &&
+        _pass != "" &&
+        _errorName == null &&
+        _errorPass == null;
+  }
+
   Future _signIn() async {
     final email = _emailController.text.trim();
     final pass = _passwordController.text.trim();
@@ -31,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
     //Validasi Inputan
     if (email.isEmpty || pass.isEmpty) {
       setState(() {
-        _errorMessage = "Please enter email and password";
+        _errorMessage = "Please enter email and password !!";
         print("$_errorMessage");
       });
       _showSnackBarMessage(_errorMessage!);
@@ -59,9 +73,9 @@ class _LoginPageState extends State<LoginPage> {
   void _showSnackBarMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Center(child: Text(message)),
         duration: Duration(seconds: 5),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black,
       ),
     );
   }
@@ -112,6 +126,18 @@ class _LoginPageState extends State<LoginPage> {
                 prefixIcon: IconConstant.emailIcon,
                 enable: true,
                 obscureText: false,
+                onChanged: (String value) {
+                  _name = value;
+                  if (_name.isEmpty) {
+                    _errorName = 'Email must not be empty';
+                  } else if (_name.length < 3) {
+                    _errorName = 'Email must be at least 3 characters long';
+                  } else {
+                    _errorName = null;
+                  }
+                  setState(() {});
+                },
+                errorText: _errorName,
               ),
             ),
             SizedBox(
@@ -125,6 +151,18 @@ class _LoginPageState extends State<LoginPage> {
                 prefixIcon: IconConstant.passwordIcon,
                 enable: true,
                 obscureText: true,
+                onChanged: (String value) {
+                  _pass = value;
+                  if (_pass.isEmpty) {
+                    _errorPass = 'Password must not be empty';
+                  } else if (_pass.length < 6) {
+                    _errorPass = 'Password must be at least 6 characters long';
+                  } else {
+                    _errorPass = null;
+                  }
+                  setState(() {});
+                },
+                errorText: _errorPass,
               ),
             ),
             Padding(
