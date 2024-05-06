@@ -20,8 +20,7 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
               decoration: BoxDecoration(
                 color: ColorPlants.greenDark,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30)),
+                    topLeft: Radius.circular(0), topRight: Radius.circular(0)),
               ),
               padding: EdgeInsets.all(20),
               child: Text(
@@ -102,8 +101,8 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
                     Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needles ''');
               },
               child: Container(
-                height: 100,
-                width: 120,
+                height: 90,
+                width: 110,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -118,22 +117,19 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      padding: const EdgeInsets.only(right: 8),
                       child: Text(
-                        'Description of this page',
-                        style: TextStyleUsable.interRegularGreenTwo,
+                        '   Description',
+                        style: TextStyleUsable.interRegularBoldGreen,
                       ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
-                    Icon(
-                      Icons.article_rounded,
-                      color: ColorPlants.greenDark,
-                    )
+                    IconConstant.articleIcon
                   ],
                 ),
               ),
@@ -159,8 +155,8 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
                     Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needles ''');
               },
               child: Container(
-                height: 100,
-                width: 120,
+                height: 90,
+                width: 110,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -175,22 +171,19 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 25,
+                      height: 20,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      padding: const EdgeInsets.only(right: 10),
                       child: Text(
-                        'Solution',
-                        style: TextStyleUsable.interRegularGreenTwo,
+                        '   Solution',
+                        style: TextStyleUsable.interRegularBoldGreen,
                       ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
-                    Icon(
-                      Icons.book,
-                      color: ColorPlants.greenDark,
-                    )
+                    IconConstant.ideaIcon
                   ],
                 ),
               ),

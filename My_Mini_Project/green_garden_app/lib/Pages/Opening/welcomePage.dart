@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
@@ -15,6 +19,56 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  Future<void> signOut(BuildContext context) async {
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Out Confirm '),
+          content: Text('Are you sure you want to sign out ?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                _showSnackBarMessage("You're out ");
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => exit(0)),
+                  (Route<dynamic> route) => false,
+                );
+                SystemNavigator.pop(); // Close the app
+              },
+              child: Text('Yes'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Dismiss the dialog
+              },
+              child: Text('No'),
+            )
+          ],
+        );
+      },
+    );
+  }
+
+  void _showSnackBarMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 5),
+        backgroundColor: Colors.black,
+        action: SnackBarAction(
+          label: 'Close',
+          textColor: Colors.white,
+          onPressed: () {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,14 +147,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           width: 110,
                           child: TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => RegisterPage(
-                                    toLoginPage: () {},
-                                  ),
-                                ),
-                              );
+                              signOut(context);
                             },
                             child: Text(
                               'Sign Out',

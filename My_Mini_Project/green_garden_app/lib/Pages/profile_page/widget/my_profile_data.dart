@@ -20,13 +20,53 @@ class ProfileDataInfo extends StatefulWidget {
 
 class _ProfileDataInfoState extends State<ProfileDataInfo> {
   Future<void> signOut(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => WelcomePage()),
-      (Route<dynamic> route) => false,
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Out Confirm '),
+          content: Text('Are you sure you want to sign out ?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                _showSnackBarMessage("You're out ");
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => exit(0)),
+                  (Route<dynamic> route) => false,
+                );
+                SystemNavigator.pop(); // Close the app
+              },
+              child: Text('Yes'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Dismiss the dialog
+              },
+              child: Text('No'),
+            )
+          ],
+        );
+      },
     );
-    SystemNavigator.pop(); // Close the app
+  }
+
+  void _showSnackBarMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 5),
+        backgroundColor: Colors.black,
+        action: SnackBarAction(
+          label: 'Close',
+          textColor: Colors.white,
+          onPressed: () {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -107,12 +147,7 @@ class _ProfileDataInfoState extends State<ProfileDataInfo> {
           ),
           ReusableButtonSubmit(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => WelcomePage(),
-                ),
-              );
+              signOut(context);
             },
             text: 'Sign Out',
             textStyle: TextStyleUsable.interButton1,

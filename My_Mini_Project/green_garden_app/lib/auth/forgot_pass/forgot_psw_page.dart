@@ -37,7 +37,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
           builder: (context) {
             return AlertDialog(
               content: Text(
-                e.message.toString(),
+                'Fill Email first !!',
               ),
             );
           });
@@ -94,17 +94,43 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
               height: 25,
             ),
             SizedBox(
-              height: 150,
+              height: 120,
             ),
             Center(
               child: ReusableButtonSubmit(
-                  onTap: () {
-                    passwordReset();
+                onTap: () {
+                  passwordReset();
+                },
+                text: 'ٌReset Password',
+                textStyle: TextStyleUsable.interButton,
+                bgColor: ColorPlants.whiteSkull,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Remember your account ? ",
+                  style: TextStyleUsable.interRegular,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(
+                          toRegisterPage: () {},
+                        ),
+                      ),
+                    );
                   },
-                  text: 'ٌReset Password',
-                  textStyle: TextStyleUsable.interButton,
-                  bgColor: ColorPlants.whiteSkull,),
-            )
+                  child: Text(
+                    'Sign in',
+                    style: TextStyleUsable.interRegularTwo,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

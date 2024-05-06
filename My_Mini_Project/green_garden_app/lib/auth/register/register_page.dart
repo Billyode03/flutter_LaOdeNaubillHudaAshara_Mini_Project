@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
@@ -23,14 +22,11 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _confirmPassController = TextEditingController();
 
   String? _errorMessage;
-  String? _successMessage;
 
-  String _name = "";
-  String _pass = "";
-  String _passConfirm = "";
+  String _names = "";
+  String _passe = "";
   String? _errorName;
   String? _errorPass;
-  String? _errorPassConfirm;
 
   @override
   void dispose() {
@@ -41,6 +37,19 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future _signUp() async {
+    final email = _emailController.text.trim();
+    final pass = _passwordController.text.trim();
+    final confirmPass = _confirmPassController.text.trim();
+
+    if (email.isEmpty || pass.isEmpty || confirmPass.isEmpty) {
+      setState(() {
+        _errorMessage = "Please fill the field first !!";
+        print("$_errorMessage");
+      });
+      _showSnackBarMessage(_errorMessage!);
+      return;
+    }
+
     if (passwordConfirmed()) {
       try {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -120,10 +129,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 enable: true,
                 obscureText: false,
                 onChanged: (String value) {
-                  _name = value;
-                  if (_name.isEmpty) {
+                  _names = value;
+                  if (_names.isEmpty) {
                     _errorName == 'Email must not be empty';
-                  } else if (_name.length < 3) {
+                  } else if (_names.length < 3) {
                     _errorName == 'Email must be at least 3 characters';
                   } else {
                     _errorName = null;
@@ -132,7 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
                 errorText: _errorName,
               ),
-            ), 
+            ),
             SizedBox(
               height: 20,
             ),
@@ -145,10 +154,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 enable: true,
                 obscureText: true,
                 onChanged: (String value) {
-                  _pass = value;
-                  if (_pass.isEmpty) {
+                  _passe = value;
+                  if (_passe.isEmpty) {
                     _errorPass == 'Password must not be empty';
-                  } else if (_pass.length < 6) {
+                  } else if (_passe.length < 6) {
                     _errorPass == 'Password must be at least 6 characters';
                   } else {
                     _errorPass = null;
@@ -186,8 +195,8 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             Center(
               child: ReusableButtonSubmit(
-                  onTap: () async {
-                    await _signUp();
+                  onTap: () {
+                    _signUp();
                   },
                   text: 'Sign Up',
                   textStyle: TextStyleUsable.interButton,
