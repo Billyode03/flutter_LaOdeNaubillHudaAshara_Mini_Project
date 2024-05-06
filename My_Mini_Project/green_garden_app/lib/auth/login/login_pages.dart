@@ -4,6 +4,7 @@ import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/Utils/shred_pref.dart';
 import 'package:green_garden/auth/forgot_pass/forgot_psw_page.dart';
 import 'package:green_garden/auth/register/register_page.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
@@ -186,6 +187,8 @@ class _LoginPageState extends State<LoginPage> {
               child: ReusableButtonSubmit(
                   onTap: () {
                     _signIn();
+                    ShredPref.saveToken(token: _emailController.text);
+                    ShredPref.savePass(pass:_passwordController.text);
                   },
                   text: 'Sign In',
                   textStyle: TextStyleUsable.interButton,

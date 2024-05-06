@@ -19,6 +19,7 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  
   Future<void> signOut(BuildContext context) async {
     await showDialog(
       context: context,

@@ -7,6 +7,7 @@ import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/Opening/welcomePage.dart';
 import 'package:green_garden/Pages/profile_page/widget/my_profile_data_widget.dart';
+import 'package:green_garden/Utils/shred_pref.dart';
 import 'package:green_garden/widgets/reusableButtonSubmit.dart';
 
 class ProfileDataInfo extends StatefulWidget {
@@ -67,6 +68,28 @@ class _ProfileDataInfoState extends State<ProfileDataInfo> {
         ),
       ),
     );
+  }
+
+  String? token;
+  String? pass;
+
+  void getToken() async {
+    token = await ShredPref.getToken();
+    print(token);
+    setState(() {});
+  }
+
+  void getPassToken() async {
+    pass = await ShredPref.getPassToken();
+    print(pass);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getToken();
+    getPassToken();
+    super.initState();
   }
 
   @override
@@ -147,6 +170,7 @@ class _ProfileDataInfoState extends State<ProfileDataInfo> {
           ),
           ReusableButtonSubmit(
             onTap: () {
+              ShredPref.removeAllKey();
               signOut(context);
             },
             text: 'Sign Out',
