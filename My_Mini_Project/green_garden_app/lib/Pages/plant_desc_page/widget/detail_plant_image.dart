@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:green_garden/Constant/text_constant.dart';
 
 class DetailPlantImage extends StatelessWidget {
   const DetailPlantImage({super.key});

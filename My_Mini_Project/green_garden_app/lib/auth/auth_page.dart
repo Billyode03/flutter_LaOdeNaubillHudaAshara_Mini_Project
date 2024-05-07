@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:green_garden/auth/login/login_pages.dart';
-import 'package:green_garden/auth/register/register_page.dart';
+import 'package:green_garden/provider_pages/login_provider_page.dart';
+import 'package:green_garden/provider_pages/register_provider_page.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -22,9 +22,9 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     if (toLoginPage) {
-      return LoginPage(toRegisterPage: toggleScreens);
+      return LoginPageProvider(toRegisterPage: toggleScreens);
     } else {
-      return RegisterPage(toLoginPage: toggleScreens);
+      return RegisterPageProvider(toLoginPage: toggleScreens);
     }
   }
 }

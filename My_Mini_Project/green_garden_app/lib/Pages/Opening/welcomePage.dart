@@ -1,15 +1,10 @@
 import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/auth/login/login_pages.dart';
-import 'package:green_garden/auth/register/register_page.dart';
-import 'package:green_garden/widgets/reusableButtonSubmit.dart';
-import 'package:green_garden/widgets/reusableTextField.dart';
+import 'package:green_garden/provider_pages/login_provider_page.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -19,7 +14,6 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  
   Future<void> signOut(BuildContext context) async {
     await showDialog(
       context: context,
@@ -91,7 +85,7 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 200,
                 ),
                 Container(
@@ -101,7 +95,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     style: TextStyleUsable.interLogin,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
@@ -113,7 +107,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     style: TextStyleUsable.interRegular,
                   ),
                 ),
-                SizedBox(height: 350),
+                const SizedBox(height: 350),
                 Center(
                   child: Container(
                     child: Row(
@@ -132,7 +126,7 @@ class _WelcomePageState extends State<WelcomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginPage(
+                                  builder: (context) => LoginPageProvider(
                                     toRegisterPage: () {},
                                   ),
                                 ),

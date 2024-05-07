@@ -17,6 +17,9 @@ class ForgetPasswordPage extends StatefulWidget {
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController _emailController = TextEditingController();
 
+  String _email = "";
+  String? _errorEmail;
+
   Future passwordReset() async {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(
@@ -88,6 +91,16 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 prefixIcon: IconConstant.emailIcon,
                 enable: true,
                 obscureText: false,
+                onChanged: (String value) {
+                  _email = value;
+                  if (_email.isEmpty) {
+                    _errorEmail = "Email must be fill first";
+                  } else {
+                    _errorEmail = null;
+                  }
+                  setState(() {});
+                },
+                errorText: _errorEmail,
               ),
             ),
             SizedBox(

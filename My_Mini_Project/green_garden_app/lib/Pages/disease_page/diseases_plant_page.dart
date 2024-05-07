@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Pages/article_page/widget/article_header_plant.dart';
-import 'package:green_garden/Pages/article_page/widget/article_list_article_plant.dart';
 import 'package:green_garden/Pages/disease_page/widget/diseases_header_plant.dart';
 import 'package:green_garden/Pages/disease_page/widget/diseases_list_plant.dart';
 

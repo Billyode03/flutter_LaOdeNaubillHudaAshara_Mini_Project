@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 
 class MenuProfileWidget extends StatelessWidget {

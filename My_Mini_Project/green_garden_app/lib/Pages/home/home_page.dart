@@ -3,8 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Constant/icon_constant.dart';
-import 'package:green_garden/Constant/text_constant.dart';
+
 import 'package:green_garden/Pages/home/widget/carousel/imageCarousel.dart';
 import 'package:green_garden/Pages/home/widget/carousel/image_viewer.dart';
 import 'package:green_garden/Pages/home/widget/header/header_home_widget.dart';
@@ -12,10 +11,6 @@ import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.da
 import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
 import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
 import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
-import 'package:green_garden/auth/register/register_page.dart';
-import 'package:green_garden/models/plant.dart';
-import 'package:green_garden/widgets/reusableButtonSubmit.dart';
-import 'package:green_garden/widgets/reusableTextField.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
 
