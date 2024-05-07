@@ -1,4 +1,4 @@
-class PlantModels {
+class PlantModel {
   final int id;
   final String commonName;
   final List<String> scientificName;
@@ -6,9 +6,9 @@ class PlantModels {
   final String cycle;
   final String watering;
   final List<String> sunlight;
-  final ImageData imageData; // Use ImageData for image details
+  final String defaultImage;
 
-  PlantModels({
+  PlantModel({
     required this.id,
     required this.commonName,
     required this.scientificName,
@@ -16,50 +16,19 @@ class PlantModels {
     required this.cycle,
     required this.watering,
     required this.sunlight,
-    required this.imageData,
+    required this.defaultImage,
   });
 
-  factory PlantModels.fromJson(Map<String, dynamic> json) => PlantModels(
-        id: json['id'],
-        commonName: json['common_name'],
-        scientificName: json['scientific_name'].cast<String>(), // Cast to List<String>
-        otherName: json['other_name'].cast<String>(),   // Cast to List<String>
-        cycle: json['cycle'],
-        watering: json['watering'],
-        sunlight: json['sunlight'].cast<String>(),     // Cast to List<String>
-        imageData: ImageData.fromJson(json['default_image']),
-      );
-}
-
-class ImageData {
-  final int license;
-  final String licenseName;
-  final String licenseUrl;
-  final String originalUrl;
-  final String regularUrl;
-  final String mediumUrl;
-  final String smallUrl;
-  final String thumbnail;
-
-  ImageData({
-    required this.license,
-    required this.licenseName,
-    required this.licenseUrl,
-    required this.originalUrl,
-    required this.regularUrl,
-    required this.mediumUrl,
-    required this.smallUrl,
-    required this.thumbnail,
-  });
-
-  factory ImageData.fromJson(Map<String, dynamic> json) => ImageData(
-        license: json['license'],
-        licenseName: json['license_name'],
-        licenseUrl: json['license_url'],
-        originalUrl: json['original_url'],
-        regularUrl: json['regular_url'],
-        mediumUrl: json['medium_url'],
-        smallUrl: json['small_url'],
-        thumbnail: json['thumbnail'],
-      );
+  factory PlantModel.fromJson(Map<String, dynamic> json) {
+    return PlantModel(
+      id: json['id'],
+      commonName: json['common_name'],
+      scientificName: List<String>.from(json['scientific_name']),
+      otherName: List<String>.from(json['other_name']),
+      cycle: json['cycle'],
+      watering: json['watering'],
+      sunlight: List<String>.from(json['sunlight']),
+      defaultImage: json['default_image']['regular_url'],
+    );
+  }
 }

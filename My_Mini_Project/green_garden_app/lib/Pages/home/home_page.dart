@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 

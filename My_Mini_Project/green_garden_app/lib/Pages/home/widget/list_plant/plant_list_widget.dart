@@ -15,12 +15,21 @@ class PlantListWidget extends StatefulWidget {
 class _PlantListWidgetState extends State<PlantListWidget> {
   final List<PlantModel> _plantList = [
     PlantModel(
-      imageURL: 'assets/tree.jpg',
-      plantName: 'Cemara',
+      
     ),
   ];
 
   int selectedIndex = 0;
+
+  Future><void> fetchPlant()async{
+    try{
+      var response = await Dio().get('https://perenual.com/api/species-list?key=sk-XVnP66274d86ccc3b5224 ');
+      List<dynamic> datta = response.data['data'];
+      setState(() {
+        _plantList = 
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
