@@ -1,7 +1,7 @@
 class PlantModel {
   final int id;
   final String commonName;
-  final List<String> scientificName;
+  final String scientificName;
   final List<String> otherName;
   final String cycle;
   final String watering;
@@ -23,12 +23,14 @@ class PlantModel {
     return PlantModel(
       id: json['id'],
       commonName: json['common_name'],
-      scientificName: List<String>.from(json['scientific_name']),
+      scientificName: json['scientific_name'][0],
       otherName: List<String>.from(json['other_name']),
       cycle: json['cycle'],
       watering: json['watering'],
       sunlight: List<String>.from(json['sunlight']),
-      defaultImage: json['default_image']['regular_url'],
+      defaultImage: json['default_image'] != null
+          ? json['default_image']['regular_url']
+          : '',
     );
   }
 }

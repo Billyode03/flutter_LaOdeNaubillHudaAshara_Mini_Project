@@ -60,8 +60,7 @@ class _HomePageState extends State<HomePage>
 
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
-      body: SingleChildScrollView(
-        child: Column(
+      body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
@@ -89,7 +88,6 @@ class _HomePageState extends State<HomePage>
             PlantListWidget(),
           ],
         ),
-      ),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
