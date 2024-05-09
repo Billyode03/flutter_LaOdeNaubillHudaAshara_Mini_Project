@@ -34,12 +34,25 @@ class DiseasesPlantDetail extends StatelessWidget {
               decoration: BoxDecoration(
                 color: ColorPlants.greenDark,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(0), topRight: Radius.circular(0)),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
               ),
               padding: EdgeInsets.all(20),
-              child: Text(
-                text,
-                style: TextStyleUsable.interRegular,
+              child: Column(
+                children: [
+                  Text(
+                    title,
+                    style: TextStyleUsable.interRegularWhiteOne,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    text,
+                    style: TextStyleUsable.interRegular,
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
               ),
             ),
           );

@@ -5,6 +5,7 @@ import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/plant_desc_page/detail_plant_page.dart';
 import 'package:green_garden/Service/get_list_plant_service.dart';
+import 'package:green_garden/models/detail_plant.dart';
 import 'package:green_garden/models/plants_model.dart';
 
 class PlantListWidget extends StatefulWidget {
@@ -68,6 +69,8 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                   );
                 } else {
                   List<PlantModel> plantList = snapshot.data ?? [];
+                  
+
                   return ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: plantList.length,
@@ -79,7 +82,9 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailPlantPage(),
+                              builder: (context) => DetailPlantPage(
+                                selectedPlant: plantList[index],
+                              ),
                             ),
                           );
                         },

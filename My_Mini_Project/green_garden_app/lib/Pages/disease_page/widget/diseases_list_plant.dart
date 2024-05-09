@@ -36,7 +36,6 @@ class _DiseasePageState extends State<DiseaseListPlant> {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             List<DiseaseModel> diseaseList = snapshot.data ?? [];
-            List<DiseaseDescSoluPlant> diseaseListDecs = [];
             return ListView.builder(
               itemCount: diseaseList.length,
               itemBuilder: (context, index) {
