@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/plant_desc_page/detail_plant_page.dart';
 import 'package:green_garden/Service/get_list_plant_service.dart';
-import 'package:green_garden/models/plants.dart';
+import 'package:green_garden/models/plants_model.dart';
 
 class PlantListWidget extends StatefulWidget {
   const PlantListWidget({Key? key});
@@ -14,7 +15,6 @@ class PlantListWidget extends StatefulWidget {
 }
 
 class _PlantListWidgetState extends State<PlantListWidget> {
-  late Future<List<PlantModel>> _plants;
   late Future<List<PlantModel>> _fetchPlantData;
 
   @override
@@ -40,12 +40,21 @@ class _PlantListWidgetState extends State<PlantListWidget> {
           SizedBox(
             height: 10,
           ),
-          Text(
-            'See Plant List',
-            style: TextStyleUsable.interRegularGreenTwo,
+          Container(
+            height: 30,
+            width: 350,
+            decoration: BoxDecoration(
+                color: ColorPlants.cyanPlant,
+                borderRadius: BorderRadius.circular(30)),
+            child: Center(
+              child: Text(
+                'See Plant List',
+                style: TextStyleUsable.interRegularWhiteOne,
+              ),
+            ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Expanded(
             child: FutureBuilder<List<PlantModel>>(
@@ -75,8 +84,8 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                           );
                         },
                         child: Container(
-                          width: 200,
-                          margin: const EdgeInsets.symmetric(horizontal: 98),
+                          width: 120,
+                          margin: const EdgeInsets.symmetric(horizontal: 6),
                           decoration: BoxDecoration(
                             color: Colors.blue.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(30),
@@ -86,18 +95,34 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                               Positioned.fill(
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(30),
-                                  child: Image.network(
-                                    plantList[index].defaultImage,
+                                  child: CachedNetworkImage(
+                                    imageUrl: plantList[index].defaultImage,
                                     fit: BoxFit.cover,
+                                    placeholder: (context, url) =>
+                                        LinearProgressIndicator(),
+                                    errorWidget: (context, url, error) => Icon(
+                                        Icons.error,
+                                        color: Colors.amber,
+                                        size: 48),
                                   ),
                                 ),
                               ),
                               Positioned(
-                                left: 35,
+                                left: 25,
                                 bottom: 15,
                                 child: Text(
-                                  plantList[index].commonName,
+                                  plantList[index].commonName.length >= 5
+                                      ? plantList[index]
+                                              .commonName
+                                              .substring(0, 9) +
+                                          "..." // Jika teks lebih panjang dari 15 karakter, potong dan tambahkan elipsis
+                                      : plantList[index]
+                                          .commonName, // Jika teks tidak lebih panjang dari 15 karakter, tampilkan teks lengkap
                                   style: TextStyleUsable.interRegular,
+                                  overflow: TextOverflow
+                                      .ellipsis, // Menambahkan elipsis jika teks terpotong
+                                  maxLines:
+                                      1, // Menampilkan teks hanya dalam satu baris
                                 ),
                               ),
                             ],

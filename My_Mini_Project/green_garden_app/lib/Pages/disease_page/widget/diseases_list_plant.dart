@@ -1,8 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/disease_page/widget/diseases_detail_plant.dart';
 import 'package:green_garden/Pages/disease_page/widget/diseases_header_plant.dart';
+import 'package:green_garden/Service/get_disease_plant_service.dart';
+import 'package:green_garden/models/disease_model.dart';
 
 class DiseaseListPlant extends StatefulWidget {
   const DiseaseListPlant({super.key, required this.onItemSelected});
@@ -11,87 +14,99 @@ class DiseaseListPlant extends StatefulWidget {
   State<DiseaseListPlant> createState() => _DiseasePageState();
 }
 
-List<String> diseaseNames = [
-  'Green Garden Canada',
-  'Fine Gardening',
-  'Be Green',
-  'Tanduria',
-  'Garden Beast',
-];
-
-List<String> diseaseData = [
-  'assets/bannerList/beGarden.png',
-  'assets/bannerList/fineGarden.png',
-  'assets/bannerList/beGreen.png',
-  'assets/bannerList/tanduria.png',
-  'assets/bannerList/gardenBeast.png',
-];
-
 class _DiseasePageState extends State<DiseaseListPlant> {
+  late Future<List<DiseaseModel>> _fetchDiseaseData;
+
+  @override
+  void initState() {
+    _fetchDiseaseData = GetDiseasePlantService().fetchDiseaseData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
-      body: ListView.builder(
-        itemCount: diseaseData.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DiseasesPlantDetail(),
-                  ));
-            },
-            child: Column(
-              children: [
-                Container(
-                  height: 150,
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: Offset(0, 2),
-                      )
-                    ],
-                  ),
-                  child: Stack(
+      body: FutureBuilder<List<DiseaseModel>>(
+        future: _fetchDiseaseData,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            List<DiseaseModel> diseaseList = snapshot.data ?? [];
+            List<DiseaseDescSoluPlant> diseaseListDecs = [];
+            return ListView.builder(
+              itemCount: diseaseList.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DiseasesPlantDetail(
+                            selectedDisease: diseaseList[index],
+                          ),
+                        ));
+                  },
+                  child: Column(
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              diseaseData[index],
+                      if (diseaseList[index].images.isNotEmpty)
+                        Container(
+                          height: 230,
+                          width: 230,
+                          margin:
+                              EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: ColorPlants.cyanPlant,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: ColorPlants.cyanPlant,
+                                spreadRadius: 5,
+                                blurRadius: 10,
+                                offset: Offset(0, 5),
+                              )
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(30),
+                            child: Center(
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    diseaseList[index].images.first.thumbnail,
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) =>
+                                    CircularProgressIndicator(),
+                                errorWidget: (context, url, error) => Icon(
+                                    Icons.error,
+                                    color: Colors.red,
+                                    size: 48),
+                              ),
                             ),
-                            fit: BoxFit.cover,
                           ),
                         ),
+                      if (diseaseList[index].images.isNotEmpty)
+                        Center(
+                          child: Text(
+                            diseaseList[index].commonName,
+                            style: TextStyleUsable.interRegularWhiteTwo,
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                          ),
+                        ),
+                      SizedBox(
+                        height: 20,
                       ),
                     ],
                   ),
-                ),
-                Center(
-                  child: Text(
-                    diseaseNames[index],
-                    style: TextStyleUsable.interRegularWhiteTwo,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
-          );
+                );
+              },
+            );
+          }
         },
       ),
     );

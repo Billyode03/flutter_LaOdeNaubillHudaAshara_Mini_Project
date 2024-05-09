@@ -11,22 +11,18 @@ class HeaderImageDetail extends StatefulWidget {
 class _HeaderImageDetailState extends State<HeaderImageDetail> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 35),
-          child: Column(
-            children: [
-              Align(
-                child: Text(
-                  'Cemara Tree',
-                  style: TextStyleUsable.interDescWhite,
-                ),
-              ),
-            ],
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 35),
+      child: Column(
+        children: [
+          Align(
+            child: Text(
+              'Cemara Tree',
+              style: TextStyleUsable.interDescWhite,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:green_garden/models/plants.dart';
+import 'package:green_garden/models/plants_model.dart';
 
 class GetListPlantService {
   Future<List<PlantModel>> fetchPlantData() async {

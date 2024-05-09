@@ -1,17 +1,31 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/models/disease_model.dart';
 
-class DiseasesPlantDetail extends StatefulWidget {
-  const DiseasesPlantDetail({super.key});
+class DiseasesPlantDetail extends StatelessWidget {
+  final DiseaseModel selectedDisease;
 
-  @override
-  State<DiseasesPlantDetail> createState() => _DiseasePlantDetailState();
-}
+  const DiseasesPlantDetail({
+    super.key,
+    required this.selectedDisease,
+  });
 
-class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
-  void _showBottomSheet(String text) {
+  String getDescriptionAsString(List<DiseaseDescSoluPlant> subtitle,
+      List<DiseaseDescSoluPlant> descriptions) {
+    // Join the descriptions into a single string
+    return descriptions.map((desc) => desc.description).join('\n');
+  }
+
+  String getSolutionAsString(List<DiseaseDescSoluPlant> subtitle,
+      List<DiseaseDescSoluPlant> solutions) {
+    // Join the solutions into a single string
+    return solutions.map((sub) => sub.subtitle).join('\n');
+  }
+
+  void _showBottomSheet(BuildContext context, String title, String text) {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
@@ -43,44 +57,60 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
       body: Column(children: [
         // Center(child: Image.asset("assets/tree.jpg", width: 300)),
         Container(
-          height: 480,
+          height: 450,
           margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: ColorPlants.cyanPlant,
             borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 1,
-                blurRadius: 3,
-                offset: Offset(0, 2),
+                color: ColorPlants.cyanPlant,
+                spreadRadius: 5,
+                blurRadius: 10,
+                offset: Offset(0, 3),
               ),
             ],
           ),
           child: Stack(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  image: DecorationImage(
-                    image: AssetImage('assets/tree.jpg'),
-                    fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: CachedNetworkImage(
+                  imageUrl: selectedDisease.images.first.thumbnail,
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) =>
+                      Icon(Icons.error, color: Colors.red, size: 48),
                 ),
-              )
+              ),
             ],
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 15,
         ),
         Text(
-          'Cemara Tree',
+          selectedDisease.commonName,
           style: TextStyleUsable.interRegularWhiteThree,
         ),
         SizedBox(
-          height: 20,
+          height: 5,
+        ),
+        Text(
+          selectedDisease.scientificName,
+          style: TextStyleUsable.interRegular,
+        ),
+        SizedBox(
+          height: 15,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -88,17 +118,12 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
             GestureDetector(
               onTap: () {
                 _showBottomSheet(
-                    '''European Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needles.European Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needlesEuropean Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needlesEuropean Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needlesEuropean Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needles ''');
+                  context,
+                  'Description',
+                  selectedDisease.description
+                      .map((desc) => '${desc.subtitle}\n\n${desc.description}')
+                      .join('\n\n'),
+                );
               },
               child: Container(
                 height: 90,
@@ -142,17 +167,12 @@ class _DiseasePlantDetailState extends State<DiseasesPlantDetail> {
             GestureDetector(
               onTap: () {
                 _showBottomSheet(
-                    '''European Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needles.European Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needlesEuropean Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needlesEuropean Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needlesEuropean Silver Fir (Abies alba) is an amazing coniferous species native to mountainous regions of central 
-                    Europe and the Balkans. It is an evergreen tree with a narrow, pyramidal shape and long, soft needles. 
-                    Its bark is scaly grey-brown and its branches are highly ornamental due to its conical-shaped silver-tinged needles ''');
+                  context,
+                  'Solution',
+                  selectedDisease.solution
+                      .map((sol) => '${sol.subtitle}\n\n${sol.description}')
+                      .join('\n\n'),
+                );
               },
               child: Container(
                 height: 90,
