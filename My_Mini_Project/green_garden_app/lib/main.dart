@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:green_garden/Pages/Opening/splash_screen.dart';
+import 'package:green_garden/Pages/ai_page/ai_page.dart';
+import 'package:green_garden/Pages/opening/splash_screen.dart';
 import 'package:green_garden/Pages/home/home_page.dart';
 import 'package:green_garden/Pages/plant_desc_page/detail_plant_page.dart';
 import 'package:green_garden/provider/forget_password_provider.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
+      home: OpenAiPage(),
+    );g
   }
 }

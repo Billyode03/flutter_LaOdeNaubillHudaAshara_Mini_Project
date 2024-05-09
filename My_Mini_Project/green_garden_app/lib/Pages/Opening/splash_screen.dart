@@ -4,7 +4,7 @@ import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/home/home_page.dart';
 import 'package:green_garden/Utils/shred_pref.dart';
-import 'package:green_garden/Pages/Opening/onScreenBoard.dart';
+import 'package:green_garden/Pages/opening/onScreenBoard.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
