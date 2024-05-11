@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
+import 'package:green_garden/Constant/icon_constant.dart';
+import 'package:green_garden/Pages/ai_page/ai_page.dart';
 
 import 'package:green_garden/Pages/home/widget/carousel/imageCarousel.dart';
 import 'package:green_garden/Pages/home/widget/carousel/image_viewer.dart';
@@ -61,33 +63,48 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 50,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 50,
+          ),
+          Container(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: HeaderHomeWidget()),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: FormSearchHomeWidget()),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: PlantListMenuHome()),
+          _innerBannerSlider(400, width),
+          SizedBox(
+            height: 20,
+          ),
+          PlantListWidget(),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OpenAiPage(),
             ),
-            Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: HeaderHomeWidget()),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: FormSearchHomeWidget()),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: PlantListMenuHome()),
-            _innerBannerSlider(400, width),
-            SizedBox(
-              height: 20,
-            ),
-            PlantListWidget(),
-          ],
+          );
+        },
+        backgroundColor: ColorPlants.cyanPlant,
+        child: Image.asset(
+          'assets/aiBG.png',
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
@@ -97,7 +114,10 @@ class _HomePageState extends State<HomePage>
       controller: _motionTabBarController,
       initialSelectedTab: "Home",
       labels: const ["Home", "Profile"],
-      icons: const [Icons.home, Icons.people_alt],
+      icons: const [
+        Icons.home,
+        Icons.people_alt,
+      ],
       tabSize: 50,
       tabBarHeight: 55,
       textStyle: const TextStyle(
