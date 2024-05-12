@@ -10,7 +10,9 @@ import 'package:green_garden/models/detail_plant.dart';
 import 'package:green_garden/models/plants_model.dart';
 
 class PlantListWidget extends StatefulWidget {
-  const PlantListWidget({Key? key});
+  final List<PlantModel> plantList;
+
+  const PlantListWidget({Key? key, required this.plantList});
 
   @override
   State<PlantListWidget> createState() => _PlantListWidgetState();
@@ -28,7 +30,7 @@ class _PlantListWidgetState extends State<PlantListWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
+      height: 285,
       width: 400,
       decoration: BoxDecoration(
         color: ColorPlants.whiteSkull,
@@ -70,7 +72,6 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                   );
                 } else {
                   List<PlantModel> plantList = snapshot.data ?? [];
-                  
 
                   return ListView.builder(
                     physics: const BouncingScrollPhysics(),
@@ -79,8 +80,10 @@ class _PlantListWidgetState extends State<PlantListWidget> {
                     reverse: false,
                     itemBuilder: (context, index) {
                       return GestureDetector(
-                        onTap: () async{
-                          DetailPlant selectedPlanDetail = await GetDetailPlantService().fetchDetailPlantData(plantList[index].id);
+                        onTap: () async {
+                          DetailPlant selectedPlanDetail =
+                              await GetDetailPlantService()
+                                  .fetchDetailPlantData(plantList[index].id);
                           Navigator.push(
                             context,
                             MaterialPageRoute(

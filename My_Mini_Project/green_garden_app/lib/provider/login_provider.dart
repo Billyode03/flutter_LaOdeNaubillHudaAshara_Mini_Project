@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/Utils/shred_pref.dart';
+import 'package:green_garden/provider_pages/forget_password_provider_page.dart';
 
 class LoginProvider with ChangeNotifier {
   String? _errorMessage;
@@ -8,6 +10,8 @@ class LoginProvider with ChangeNotifier {
   String _pass = "";
   String? _errorName;
   String? _errorPass;
+  int _loginAttempts = 0;
+  int get loginAttempts => _loginAttempts;
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -56,13 +60,19 @@ class LoginProvider with ChangeNotifier {
     }
 
     try {
+      ShredPref.saveToken(token: emailController.text);
+      ShredPref.savePass(pass: passwordController.text);
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email.trim(),
         password: password.trim(),
       );
-      _errorMessage = "Login Success";
-      _showSnackBarMessage(context, errorMessage!);
-      // Navigasi ke halaman lain setelah berhasil login
+
+      //Reset Attempts if login successful
+      _loginAttempts = 0;
+
+      // _errorMessage = "Login Success";
+      // _showSnackBarMessage(context, errorMessage!);
+      // Navigasi ke halaman utama setelah berhasil login
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -70,8 +80,24 @@ class LoginProvider with ChangeNotifier {
         ),
       );
     } on FirebaseAuthException catch (e) {
-      _errorMessage = e.message;
+      _loginAttempts++;
+
+      _errorMessage = "Wrong Email and Password";
       _showSnackBarMessage(context, errorMessage!);
+
+      //Check if login attempt reach 3
+      if (_loginAttempts >= 3) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ForgetPassPageProvider(),
+          ),
+        );
+      } else {
+        if (_loginAttempts >= 3) {
+          _showSnackBarMessage(context, errorMessage!);
+        }
+      }
     }
   }
 
@@ -84,5 +110,4 @@ class LoginProvider with ChangeNotifier {
       ),
     );
   }
-  
 }

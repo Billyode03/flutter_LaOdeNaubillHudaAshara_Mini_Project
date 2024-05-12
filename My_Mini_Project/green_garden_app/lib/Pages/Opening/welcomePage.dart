@@ -19,28 +19,68 @@ class _WelcomePageState extends State<WelcomePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Out Confirm '),
-          content: Text('Are you sure you want to sign out ?'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () async {
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          backgroundColor: ColorPlants.cyanPlant,
+          title: Column(
+            children: [
+              Icon(
+                Icons.error,
+                size: 100,
+                color: Colors.amber,
+              )
+            ],
+          ),
+          content: Text(
+            'Are You Sure wanna to Sign Out ?',
+            style: TextStyleUsable.interRegularBold,
+          ),
+          actions: [
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 100,
+                height: 40,
+                child: Center(
+                  child: Text(
+                    'no',
+                    style: TextStyleUsable.interRegularBold,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: ColorPlants.greenDark,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 _showSnackBarMessage("You're out ");
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => exit(0)),
                   (Route<dynamic> route) => false,
-                );
-                SystemNavigator.pop(); // Close the app
+                ); // Close the app
               },
-              child: Text('Yes'),
+              child: Container(
+                width: 100,
+                height: 40,
+                child: Center(
+                  child: Text(
+                    'Yes',
+                    style: TextStyleUsable.interRegularBoldGreen,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: ColorPlants.whiteSkull,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Dismiss the dialog
-              },
-              child: Text('No'),
-            )
           ],
         );
       },

@@ -2,15 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 
-class FormSearchHomeWidget extends StatelessWidget {
-  const FormSearchHomeWidget({super.key});
+class FormSearchHomeWidget extends StatefulWidget {
+  final Function(String) onSearch;
+
+  const FormSearchHomeWidget({super.key, required this.onSearch});
+
+  @override
+  State<FormSearchHomeWidget> createState() => _FormSearchHomeWidgetState();
+}
+
+class _FormSearchHomeWidgetState extends State<FormSearchHomeWidget> {
+  TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
       child: TextField(
-        enabled: false,
+        enabled: true,
+        controller: _searchController,
+        onChanged: (value) {
+          widget.onSearch(value);
+        },
         decoration: InputDecoration(
           filled: true,
           fillColor: ColorPlants.whiteSkull,

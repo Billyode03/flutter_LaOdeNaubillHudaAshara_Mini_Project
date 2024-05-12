@@ -4,14 +4,14 @@ import 'package:green_garden/Constant/text_constant.dart';
 class DataProfileWidget extends StatelessWidget {
   final String text;
   final String titikDua;
-  final Icon icon;
+  // final Icon icon;
   final String textTwo;
 
   const DataProfileWidget(
       {super.key,
       required this.text,
       required this.titikDua,
-      required this.icon,
+      // required this.icon,
       required this.textTwo});
 
   @override
@@ -30,7 +30,6 @@ class DataProfileWidget extends StatelessWidget {
             textTwo,
             style: TextStyleUsable.interRegularBlack,
           ),
-          icon,
         ],
       ),
     );

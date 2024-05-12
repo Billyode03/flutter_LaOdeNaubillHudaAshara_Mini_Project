@@ -34,7 +34,7 @@ class WebArticlePlantState extends State<DiseasePlantPage> {
                 ],
               ),
             ),
-            SizedBox(
+            Container(
               height: 600,
               child: DiseaseListPlant(
                 onItemSelected: (int index) {},

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,7 @@ import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.da
 import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
 import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
 import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
+import 'package:green_garden/models/plants_model.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
 
@@ -51,6 +54,10 @@ class _HomePageState extends State<HomePage>
     _motionTabBarController!.dispose();
   }
 
+  late Future<List<PlantModel>> _fetchPlantData;
+  List<PlantModel> _filteredPlants = [];
+  List<PlantModel> _plantList = [];
+
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -62,33 +69,49 @@ class _HomePageState extends State<HomePage>
 
     return Scaffold(
       backgroundColor: ColorPlants.greenDark,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 50,
-          ),
-          Container(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: HeaderHomeWidget()),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              child: HeaderHomeWidget()),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              child: FormSearchHomeWidget()),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              child: PlantListMenuHome()),
-          _innerBannerSlider(400, width),
-          SizedBox(
-            height: 20,
-          ),
-          PlantListWidget(),
-        ],
+              child: FormSearchHomeWidget(
+                onSearch: (query) {
+                  setState(() {
+                    _filteredPlants = _plantList
+                        .where((plant) => plant.commonName
+                            .toLowerCase()
+                            .contains(query.toLowerCase()))
+                        .toList();
+                  });
+                },
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: PlantListMenuHome()),
+            _innerBannerSlider(400, width),
+            SizedBox(
+              height: 20,
+            ),
+            PlantListWidget(
+              plantList:
+                  _filteredPlants.isNotEmpty ? _filteredPlants : _plantList,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
