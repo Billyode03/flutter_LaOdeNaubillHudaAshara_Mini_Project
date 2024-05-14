@@ -1,18 +1,13 @@
-import 'dart:collection';
-
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Pages/ai_page/ai_page.dart';
-
 import 'package:green_garden/Pages/home/widget/carousel/imageCarousel.dart';
 import 'package:green_garden/Pages/home/widget/carousel/image_viewer.dart';
 import 'package:green_garden/Pages/home/widget/header/header_home_widget.dart';
 import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.dart';
 import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
-import 'package:green_garden/Pages/home/widget/search_field/form_search_home_widget.dart';
 import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
 import 'package:green_garden/models/plants_model.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
@@ -30,14 +25,11 @@ class _HomePageState extends State<HomePage>
   MotionTabBarController? _motionTabBarController;
 
   late CarouselController innerCarouselController;
-  late CarouselController outerCarouselController;
   int innerCurrentPage = 0;
-  int outerCurrentPage = 0;
 
   @override
   void initState() {
     innerCarouselController = CarouselController();
-    outerCarouselController = CarouselController();
     _motionTabBarController = MotionTabBarController(
       initialIndex: 0,
       length: 2,
@@ -54,7 +46,6 @@ class _HomePageState extends State<HomePage>
     _motionTabBarController!.dispose();
   }
 
-  late Future<List<PlantModel>> _fetchPlantData;
   List<PlantModel> _filteredPlants = [];
   List<PlantModel> _plantList = [];
 
@@ -80,31 +71,26 @@ class _HomePageState extends State<HomePage>
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: HeaderHomeWidget()),
             SizedBox(
-              height: 20,
+              height: 25,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              child: FormSearchHomeWidget(
-                onSearch: (query) {
-                  setState(() {
-                    _filteredPlants = _plantList
-                        .where((plant) => plant.commonName
-                            .toLowerCase()
-                            .contains(query.toLowerCase()))
-                        .toList();
-                  });
-                },
-              ),
+              width: 370,
+              decoration: BoxDecoration(
+                  color: ColorPlants.cyanPlant,
+                  borderRadius: BorderRadius.circular(30)),
+              child: Container(
+                  height: 100,
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                  child: PlantListMenuHome()),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
-            Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: PlantListMenuHome()),
             _innerBannerSlider(400, width),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             PlantListWidget(
               plantList:

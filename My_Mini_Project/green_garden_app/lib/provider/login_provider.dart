@@ -23,6 +23,9 @@ class LoginProvider with ChangeNotifier {
 
   String? get errorMessage => _errorMessage;
 
+  bool _isPasswordVisible = false;
+  bool get isPasswordVisible => _isPasswordVisible;
+
   void setName(String value) {
     _name = value;
     if (_name.isEmpty) {
@@ -44,6 +47,11 @@ class LoginProvider with ChangeNotifier {
     } else {
       _errorPass = null;
     }
+    notifyListeners();
+  }
+
+  void setVisible() {
+    _isPasswordVisible = !_isPasswordVisible;
     notifyListeners();
   }
 
@@ -70,9 +78,6 @@ class LoginProvider with ChangeNotifier {
       //Reset Attempts if login successful
       _loginAttempts = 0;
 
-      // _errorMessage = "Login Success";
-      // _showSnackBarMessage(context, errorMessage!);
-      // Navigasi ke halaman utama setelah berhasil login
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

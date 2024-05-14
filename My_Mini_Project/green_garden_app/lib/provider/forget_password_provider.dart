@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:green_garden/Constant/color_constant.dart';
+import 'package:green_garden/Constant/text_constant.dart';
 
 class ForgetPassProvider extends ChangeNotifier {
   final TextEditingController emailController = TextEditingController();
@@ -29,8 +31,16 @@ class ForgetPassProvider extends ChangeNotifier {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text(
-                  'Password reset link has been sent to the email address'),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              backgroundColor: ColorPlants.cyanPlant,
+              content: Center(
+                heightFactor: 0.5,
+                child: Text(
+                  'Password reset link has been sent to the email address',
+                  style: TextStyleUsable.interRegularBold,
+                ),
+              ),
             );
           });
     } on FirebaseAuthException catch (e) {
@@ -39,8 +49,15 @@ class ForgetPassProvider extends ChangeNotifier {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text(
-                'Fill Email first !!',
+              backgroundColor: ColorPlants.cyanPlant,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              content: Center(
+                heightFactor: 0.5,
+                child: Text(
+                  'Fill Email first !!',
+                  style: TextStyleUsable.interRegularBold,
+                ),
               ),
             );
           });

@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
@@ -30,7 +29,7 @@ class _PlantListWidgetState extends State<PlantListWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 285,
+      height: 300,
       width: 400,
       decoration: BoxDecoration(
         color: ColorPlants.whiteSkull,

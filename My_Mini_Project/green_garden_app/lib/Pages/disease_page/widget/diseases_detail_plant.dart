@@ -33,9 +33,6 @@ class DiseasesPlantDetail extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: ColorPlants.greenDark,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
               ),
               padding: EdgeInsets.all(20),
               child: Column(

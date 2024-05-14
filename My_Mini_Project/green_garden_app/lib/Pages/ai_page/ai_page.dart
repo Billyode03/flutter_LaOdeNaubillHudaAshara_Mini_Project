@@ -4,7 +4,6 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/home/home_page.dart';
-import 'package:lottie/lottie.dart';
 
 class OpenAiPage extends StatefulWidget {
   const OpenAiPage({super.key});
@@ -165,9 +164,16 @@ class _OpenAiPageState extends State<OpenAiPage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _showDialog();
     });
+    // Menambahkan pesan default dari Gemini AI
+    messages.add(ChatMessage(
+      user: geminiUser,
+      createdAt: DateTime.now(),
+      text:
+          'Hello! I\'m GreenLant AI, i hope you can ask me around about Plant in this world !!, Happy Gardening ... ',
+    ));
     super.initState();
   }
 

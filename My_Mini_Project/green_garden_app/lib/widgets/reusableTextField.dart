@@ -17,6 +17,7 @@ class ReusableWidgetTextField extends StatelessWidget {
   final String? labelText;
   final TextInputType keyboardType;
   final Icon? prefixIcon;
+  final IconButton? suffixIcon; 
   // bool _isObscured = true;
 
   const ReusableWidgetTextField({
@@ -32,7 +33,7 @@ class ReusableWidgetTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.labelText,
     this.prefixIcon,
-    required this.obscureText,
+    required this.obscureText, this.suffixIcon,
   });
 
   @override
@@ -48,6 +49,7 @@ class ReusableWidgetTextField extends StatelessWidget {
       validator: validator,
       // obscureText: _isObscured && obscureText,
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
         errorText: errorText,
         hintText: hintText,
         enabled: enable,

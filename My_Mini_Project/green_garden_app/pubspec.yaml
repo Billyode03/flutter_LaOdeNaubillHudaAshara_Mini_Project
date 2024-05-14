@@ -28,7 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  animated_splash_screen: ^1.3.0
   another_flutter_splash_screen: ^1.2.0
   cached_network_image: ^3.3.1
   carousel_slider: ^4.2.1
@@ -45,16 +44,9 @@ dependencies:
   motion_tab_bar: ^2.0.4
   page_transition: ^2.1.0
   provider: ^6.1.2
-  readmore: ^3.0.0
   shared_preferences: ^2.2.2
   smooth_page_indicator: ^1.1.0
   webview_flutter: ^2.0.9
-  flutter_launcher_icons: "^0.13.1"
-
-# flutter_launcher_icons:
-#   android: "launcher_icon"
-#   ios: true
-#   image_path: "assets/aiBG.png"
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -76,7 +68,6 @@ flutter:
   assets:
     - assets/lottie/plant.json
     - assets/lottie/work.json
-    # - assets/lottie/work2.json
     - assets/icons/article.png
     - assets/icons/disease.png
     - assets/icons/idea.png
@@ -104,7 +95,6 @@ flutter:
     - assets/forgetPic.png
     - assets/regisPic.png
     - assets/loginPic.png
-    - assets/tree.jpg
     - assets/syns.jpg
     - assets/greelant.png
     - assets/aiBG.png

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/disease_page/widget/diseases_detail_plant.dart';
-import 'package:green_garden/Pages/disease_page/widget/diseases_header_plant.dart';
 import 'package:green_garden/Service/get_disease_plant_service.dart';
 import 'package:green_garden/models/disease_model.dart';
 
