@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/text_constant.dart';
 
 class ArticleHeaderPlant extends StatelessWidget {
   const ArticleHeaderPlant({super.key});

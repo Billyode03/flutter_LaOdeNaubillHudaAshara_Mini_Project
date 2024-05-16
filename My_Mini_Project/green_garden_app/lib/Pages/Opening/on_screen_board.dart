@@ -5,7 +5,7 @@ import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/Pages/opening/introduction_pages/widget/plant_page_one.dart';
 import 'package:green_garden/Pages/opening/introduction_pages/widget/plant_page_three.dart';
 import 'package:green_garden/Pages/opening/introduction_pages/widget/plant_page_two.dart';
-import 'package:green_garden/Pages/opening/welcomePage.dart';
+import 'package:green_garden/pages/opening/welcome_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:green_garden/Pages/Opening/splash_screen.dart';
-import 'package:green_garden/Pages/ai_page/key.dart';
+import 'package:green_garden/pages/opening/splash_screen.dart';
+import 'package:green_garden/pages/ai_page/key.dart';
 import 'package:green_garden/provider/forget_password_provider.dart';
 import 'package:green_garden/provider/login_provider.dart';
 import 'package:green_garden/provider/register_provider.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/pages/home/home_page.dart';
 
 class OpenAiPage extends StatefulWidget {
   const OpenAiPage({super.key});

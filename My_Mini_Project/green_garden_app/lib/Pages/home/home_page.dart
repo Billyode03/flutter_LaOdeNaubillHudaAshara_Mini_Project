@@ -2,13 +2,13 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Pages/ai_page/ai_page.dart';
-import 'package:green_garden/Pages/home/widget/carousel/imageCarousel.dart';
-import 'package:green_garden/Pages/home/widget/carousel/image_viewer.dart';
-import 'package:green_garden/Pages/home/widget/header/header_home_widget.dart';
-import 'package:green_garden/Pages/home/widget/list_menu/plant_list_menu_home.dart';
-import 'package:green_garden/Pages/home/widget/list_plant/plant_list_widget.dart';
-import 'package:green_garden/Pages/profile_page/my_profile_page.dart';
+import 'package:green_garden/pages/ai_page/ai_page.dart';
+import 'package:green_garden/pages/home/widget/carousel/image_carousel.dart';
+import 'package:green_garden/pages/home/widget/carousel/image_viewer.dart';
+import 'package:green_garden/pages/home/widget/header/header_home_widget.dart';
+import 'package:green_garden/pages/home/widget/list_menu/plant_list_menu_home.dart';
+import 'package:green_garden/pages/home/widget/list_plant/plant_list_widget.dart';
+import 'package:green_garden/pages/profile_page/my_profile_page.dart';
 import 'package:green_garden/models/plants_model.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 50,
+              height: 70,
             ),
             Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
@@ -74,13 +74,13 @@ class _HomePageState extends State<HomePage>
               height: 25,
             ),
             Container(
-              width: 370,
+              width: 350,
               decoration: BoxDecoration(
                   color: ColorPlants.cyanPlant,
                   borderRadius: BorderRadius.circular(30)),
               child: Container(
                   height: 100,
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  margin: EdgeInsets.symmetric(horizontal: 20),
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(30)),
                   child: PlantListMenuHome()),

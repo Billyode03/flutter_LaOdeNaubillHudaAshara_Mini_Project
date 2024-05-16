@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/pages/home/home_page.dart';
 import 'package:green_garden/Utils/shred_pref.dart';
 import 'package:green_garden/auth/forgot_pass/forgot_psw_page.dart';
 import 'package:green_garden/auth/register/register_page.dart';
-import 'package:green_garden/widgets/reusableButtonSubmit.dart';
-import 'package:green_garden/widgets/reusableTextField.dart';
+import 'package:green_garden/widgets/reusable_button_submit.dart';
+import 'package:green_garden/widgets/reusable_text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.toRegisterPage});

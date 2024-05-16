@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Pages/ai_page/ai_page.dart';
-import 'package:green_garden/Pages/home/home_page.dart';
-import 'package:green_garden/Pages/profile_page/widget/imageAvatar.dart';
-import 'package:green_garden/Pages/profile_page/widget/my_profile_data.dart';
-import 'package:green_garden/Pages/profile_page/widget/my_profile_menu_info.dart';
+import 'package:green_garden/pages/ai_page/ai_page.dart';
+import 'package:green_garden/pages/home/home_page.dart';
+import 'package:green_garden/pages/profile_page/widget/image_avatar.dart';
+import 'package:green_garden/pages/profile_page/widget/my_profile_data.dart';
+import 'package:green_garden/pages/profile_page/widget/my_profile_menu_info.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/article_page/widget/widgets/webPage.dart';
+import 'package:green_garden/pages/article_page/widget/widgets/webPage.dart';
 
 class ListArticlePlant extends StatefulWidget {
   const ListArticlePlant({super.key, required this.onItemSelected});

@@ -4,9 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/profile_page/widget/my_profile_data_widget.dart';
+import 'package:green_garden/pages/profile_page/widget/my_profile_data_widget.dart';
 import 'package:green_garden/Utils/shred_pref.dart';
-import 'package:green_garden/widgets/reusableButtonSubmit.dart';
+import 'package:green_garden/widgets/reusable_button_submit.dart';
 
 class ProfileDataInfo extends StatefulWidget {
   const ProfileDataInfo({

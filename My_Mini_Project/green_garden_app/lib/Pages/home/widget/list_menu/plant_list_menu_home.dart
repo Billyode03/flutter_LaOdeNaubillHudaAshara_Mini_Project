@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
-import 'package:green_garden/Pages/article_page/article_web_plant.dart';
-import 'package:green_garden/Pages/disease_page/diseases_plant_page.dart';
-import 'package:green_garden/Pages/favorite_page/favorite_page.dart';
-import 'package:green_garden/Pages/home/widget/list_menu/menu_home_widget.dart';
-import 'package:green_garden/Pages/tips_trick_page/tips_trick_page.dart';
+import 'package:green_garden/pages/article_page/article_web_plant.dart';
+import 'package:green_garden/pages/disease_page/diseases_plant_page.dart';
+import 'package:green_garden/pages/favorite_page/favorite_page.dart';
+import 'package:green_garden/pages/home/widget/list_menu/menu_home_widget.dart';
+import 'package:green_garden/pages/tips_trick_page/tips_trick_page.dart';
 // import 'package:green_garden/Pages/home/widget/menu_home_widget.dart';
 
 class PlantListMenuHome extends StatelessWidget {

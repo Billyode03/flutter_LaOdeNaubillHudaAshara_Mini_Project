@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/icon_constant.dart';
-import 'package:green_garden/Pages/profile_page/widget/my_profile_menu_profile_widget.dart';
+import 'package:green_garden/pages/profile_page/widget/my_profile_menu_profile_widget.dart';
 
 class ProfileMenuInfo extends StatelessWidget {
   const ProfileMenuInfo({

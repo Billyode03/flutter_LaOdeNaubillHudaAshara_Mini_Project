@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Pages/disease_page/widget/diseases_header_plant.dart';
-import 'package:green_garden/Pages/disease_page/widget/diseases_list_plant.dart';
+import 'package:green_garden/pages/disease_page/widget/diseases_header_plant.dart';
+import 'package:green_garden/pages/disease_page/widget/diseases_list_plant.dart';
 
 class DiseasePlantPage extends StatefulWidget {
   const DiseasePlantPage({super.key});

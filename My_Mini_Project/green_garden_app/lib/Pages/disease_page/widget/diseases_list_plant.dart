@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/disease_page/widget/diseases_detail_plant.dart';
+import 'package:green_garden/constant/color_constant.dart';
+import 'package:green_garden/constant/text_constant.dart';
+import 'package:green_garden/pages/disease_page/widget/diseases_detail_plant.dart';
 import 'package:green_garden/Service/get_disease_plant_service.dart';
 import 'package:green_garden/models/disease_model.dart';
 

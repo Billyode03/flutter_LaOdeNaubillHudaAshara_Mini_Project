@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:green_garden/Constant/color_constant.dart';
-import 'package:green_garden/Constant/icon_constant.dart';
-import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/color_constant.dart';
+import 'package:green_garden/constant/icon_constant.dart';
+import 'package:green_garden/constant/text_constant.dart';
 import 'package:green_garden/models/disease_model.dart';
 
 class DiseasesPlantDetail extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/pages/home/home_page.dart';
 import 'package:green_garden/auth/auth_page.dart';
 
 // TODO : Pengecek apakah Firebase memiliki data dari user atau tidak 

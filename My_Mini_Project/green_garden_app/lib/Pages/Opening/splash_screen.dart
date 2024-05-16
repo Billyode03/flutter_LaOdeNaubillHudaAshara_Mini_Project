@@ -2,9 +2,9 @@ import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:green_garden/Pages/home/home_page.dart';
+import 'package:green_garden/pages/home/home_page.dart';
 import 'package:green_garden/Utils/shred_pref.dart';
-import 'package:green_garden/Pages/opening/onScreenBoard.dart';
+import 'package:green_garden/pages/opening/on_screen_board.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {

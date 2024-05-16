@@ -4,8 +4,8 @@ import 'package:green_garden/Constant/icon_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
 import 'package:green_garden/provider/forget_password_provider.dart';
 import 'package:green_garden/provider_pages/login_provider_page.dart';
-import 'package:green_garden/widgets/reusableButtonSubmit.dart';
-import 'package:green_garden/widgets/reusableTextField.dart';
+import 'package:green_garden/widgets/reusable_button_submit.dart';
+import 'package:green_garden/widgets/reusable_text_field.dart';
 import 'package:provider/provider.dart';
 
 class ForgetPassPageProvider extends StatefulWidget {
