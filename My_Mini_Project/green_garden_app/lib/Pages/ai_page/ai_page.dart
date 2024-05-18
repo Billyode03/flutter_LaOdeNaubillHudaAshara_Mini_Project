@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/pages/home/home_page.dart';
 
 class OpenAiPage extends StatefulWidget {
@@ -105,7 +106,7 @@ class _OpenAiPageState extends State<OpenAiPage> {
               SizedBox(
                 height: 15,
               ),
-              Image.asset('assets/aiBG.png', height: 100, width: 100),
+              ImageConstant.openAiBg,
             ],
           ),
           content: Text(
@@ -187,7 +188,7 @@ class _OpenAiPageState extends State<OpenAiPage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/greelant.png'), fit: BoxFit.cover)),
+                image: ImageConstant.aiBackground, fit: BoxFit.cover)),
         child: DashChat(
           currentUser: currentUser,
           onSend: sendMessage,

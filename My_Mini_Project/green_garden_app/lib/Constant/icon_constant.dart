@@ -47,41 +47,4 @@ class IconConstant {
     color: ColorPlants.whiteSkull,
     size: 25,
   );
-
-  // ICON FROM IMAGE
-  static Image virusIcon = Image.asset(
-    'assets/icons/disease.png',
-    height: 25,
-    width: 25,
-  );
-  static Image articleIcon = Image.asset(
-    'assets/icons/article.png',
-    height: 25,
-    width: 25,
-  );
-  static Image ideaIcon = Image.asset(
-    'assets/icons/idea.png',
-    height: 25,
-    width: 25,
-  );
-  static Image loveIcon = Image.asset(
-    'assets/icons/love.png',
-    height: 25,
-    width: 25,
-  );
-  static Image wateIcon = Image.asset(
-    'assets/icons/water.png',
-    height: 20,
-    width: 20,
-  );
-  static Image cycleIcon = Image.asset(
-    'assets/icons/cycle.png',
-    height: 20,
-    width: 20,
-  );
-  static Image sunnyIcon = Image.asset(
-    'assets/icons/sunny.png',
-    height: 2,
-    width: 2,
-  );
 }

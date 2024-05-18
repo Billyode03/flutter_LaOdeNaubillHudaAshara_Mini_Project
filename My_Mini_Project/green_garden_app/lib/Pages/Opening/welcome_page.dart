@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/provider_pages/login_provider_page.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -111,10 +112,7 @@ class _WelcomePageState extends State<WelcomePage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(
-                    'assets/back.png',
-                  ),
-                  fit: BoxFit.cover),
+                  image: ImageConstant.welcome, fit: BoxFit.cover),
             ),
           ),
           Container(

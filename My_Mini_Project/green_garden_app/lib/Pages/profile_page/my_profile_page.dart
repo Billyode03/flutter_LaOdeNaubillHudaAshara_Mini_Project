@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/pages/ai_page/ai_page.dart';
 import 'package:green_garden/pages/home/home_page.dart';
 import 'package:green_garden/pages/profile_page/widget/image_avatar.dart';
@@ -59,9 +60,7 @@ class _MyProfilePageState extends State<MyProfilePage>
           );
         },
         backgroundColor: ColorPlants.cyanPlant,
-        child: Image.asset(
-          'assets/aiBG.png',
-        ),
+        child: ImageConstant.openAiBg2,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomNavigationBar(),

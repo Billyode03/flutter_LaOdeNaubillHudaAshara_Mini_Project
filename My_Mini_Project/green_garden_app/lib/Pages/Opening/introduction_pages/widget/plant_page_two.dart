@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 
 class PlantPageTwo extends StatelessWidget {
   const PlantPageTwo({super.key});
@@ -11,9 +12,7 @@ class PlantPageTwo extends StatelessWidget {
         SizedBox(
           height: 177,
         ),
-        Image.asset(
-          'assets/plant2.png',
-        ),
+        ImageConstant.scrennBoardTwo,
         SizedBox(
           height: 25,
         ),

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/constant/color_constant.dart';
-import 'package:green_garden/constant/icon_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/constant/text_constant.dart';
 import 'package:green_garden/models/disease_model.dart';
 
@@ -164,7 +164,7 @@ class DiseasesPlantDetail extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    IconConstant.articleIcon
+                    ImageConstant.articleIcon
                   ],
                 ),
               ),
@@ -213,7 +213,7 @@ class DiseasesPlantDetail extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    IconConstant.ideaIcon
+                    ImageConstant.ideaIcon
                   ],
                 ),
               ),

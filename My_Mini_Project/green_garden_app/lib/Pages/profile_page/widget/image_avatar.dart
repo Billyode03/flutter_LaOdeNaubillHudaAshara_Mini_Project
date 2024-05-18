@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 
 class ProfileImage extends StatefulWidget {
   const ProfileImage({super.key});
@@ -14,7 +15,7 @@ class _ProfileImageState extends State<ProfileImage> {
     return Column(children: [
       CircleAvatar(
         radius: 60,
-        backgroundImage: AssetImage('assets/syns.jpg'),
+        backgroundImage: ImageConstant.profileImage,
       ),
       SizedBox(
         height: 10,

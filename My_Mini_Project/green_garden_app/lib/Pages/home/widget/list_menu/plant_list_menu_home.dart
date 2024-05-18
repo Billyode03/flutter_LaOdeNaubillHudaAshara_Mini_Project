@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_garden/Constant/icon_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/pages/article_page/article_web_plant.dart';
 import 'package:green_garden/pages/disease_page/diseases_plant_page.dart';
 import 'package:green_garden/pages/favorite_page/favorite_page.dart';
@@ -22,7 +22,7 @@ class PlantListMenuHome extends StatelessWidget {
           children: [
             MenuHomeWidget(
               title: 'Article',
-              iconConstant: IconConstant.articleIcon,
+              iconConstant: ImageConstant.articleIcon,
               onTap: () {
                 Navigator.push(
                     context,
@@ -36,7 +36,7 @@ class PlantListMenuHome extends StatelessWidget {
             ),
             MenuHomeWidget(
               title: 'Disease',
-              iconConstant: IconConstant.virusIcon,
+              iconConstant: ImageConstant.virusIcon,
               onTap: () {
                 Navigator.push(
                   context,
@@ -51,7 +51,7 @@ class PlantListMenuHome extends StatelessWidget {
             ),
             MenuHomeWidget(
               title: 'Favorite',
-              iconConstant: IconConstant.loveIcon,
+              iconConstant: ImageConstant.loveIcon,
               onTap: () {
                 Navigator.push(
                   context,
@@ -66,7 +66,7 @@ class PlantListMenuHome extends StatelessWidget {
             ),
             MenuHomeWidget(
               title: 'Tips & Trick',
-              iconConstant: IconConstant.ideaIcon,
+              iconConstant: ImageConstant.ideaIcon,
               onTap: () {
                 Navigator.push(
                   context,

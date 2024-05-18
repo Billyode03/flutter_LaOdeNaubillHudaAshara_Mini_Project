@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/pages/article_page/widget/widgets/webPage.dart';
 
 class ListArticlePlant extends StatefulWidget {
@@ -23,12 +24,12 @@ class _ListArticlePlantState extends State<ListArticlePlant> {
   ];
 
   // List of image paths for web pages
-  List<String> webPageImages = [
-    'assets/bannerList/beGarden.png',
-    'assets/bannerList/fineGarden.png',
-    'assets/bannerList/beGreen.png',
-    'assets/bannerList/tanduria.png',
-    'assets/bannerList/gardenBeast.png',
+  List<Image> webPageImages = [
+    ImageConstant.webListOne,
+    ImageConstant.webListTwo,
+    ImageConstant.webListThree,
+    ImageConstant.webListFour,
+    ImageConstant.webListFive,
   ];
 
   @override
@@ -75,7 +76,7 @@ class _ListArticlePlantState extends State<ListArticlePlant> {
                           borderRadius: BorderRadius.circular(30),
                           image: DecorationImage(
                             image: AssetImage(
-                              webPageImages[index],
+                              webPageImages[index] as String,
                             ),
                             fit: BoxFit.cover,
                           ),

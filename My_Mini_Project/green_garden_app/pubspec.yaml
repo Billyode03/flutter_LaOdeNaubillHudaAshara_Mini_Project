@@ -66,27 +66,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/lottie/plant.json
-    - assets/lottie/work.json
-    - assets/icons/article.png
-    - assets/icons/disease.png
-    - assets/icons/idea.png
-    - assets/icons/love.png
-    - assets/icons/plant.png
-    - assets/icons/watering.png
-    - assets/icons/water.png
-    - assets/icons/cycle.png
-    - assets/icons/sunny.png
-    - assets/carousel/actPlant.png
-    - assets/carousel/environment.jpg
-    - assets/carousel/environment2.png
-    - assets/carousel/happyEarthDay.png
-    - assets/carousel/planting.jpg
-    - assets/bannerList/beGarden.png
-    - assets/bannerList/beGreen.png
-    - assets/bannerList/gardenBeast.png
-    - assets/bannerList/tanduria.png
-    - assets/bannerList/fineGarden.png
+    - assets/lottie/
+    - assets/icons/
+    - assets/carousel/
+    - assets/bannerList/
     - assets/plant1.png
     - assets/plant2.png
     - assets/plant3.png
@@ -96,7 +79,7 @@ flutter:
     - assets/regisPic.png
     - assets/loginPic.png
     - assets/syns.jpg
-    - assets/greelant.png
+    - assets/greenlant.png
     - assets/aiBG.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

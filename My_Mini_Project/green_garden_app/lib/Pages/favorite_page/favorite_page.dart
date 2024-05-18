@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_garden/Constant/color_constant.dart';
 import 'package:green_garden/Constant/text_constant.dart';
-import 'package:lottie/lottie.dart';
+import 'package:green_garden/constant/image_constant.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({super.key});
@@ -18,8 +18,7 @@ class FavoritePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Lottie.asset('assets/lottie/plant.json',
-                height: 200, width: 200, fit: BoxFit.cover),
+            child: ImageConstant.plantSplash,
           ),
           Center(
               child: Text(

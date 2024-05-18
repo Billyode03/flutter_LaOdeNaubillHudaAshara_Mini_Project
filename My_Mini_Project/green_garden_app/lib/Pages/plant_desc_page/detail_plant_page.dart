@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:green_garden/constant/color_constant.dart';
 import 'package:green_garden/constant/icon_constant.dart';
+import 'package:green_garden/constant/image_constant.dart';
 import 'package:green_garden/constant/text_constant.dart';
 import 'package:green_garden/pages/disease_page/diseases_plant_page.dart';
 import 'package:green_garden/pages/plant_desc_page/widget/detail_Icon.dart';
@@ -84,7 +85,6 @@ class _DetailPlantPageState extends State<DetailPlantPage> {
                                 ),
                               ),
                             ),
-                            
                             errorWidget: (context, url, error) =>
                                 Icon(Icons.error, color: Colors.red, size: 48),
                           ),
@@ -119,7 +119,7 @@ class _DetailPlantPageState extends State<DetailPlantPage> {
                             Row(
                               children: [
                                 DetailIcon(
-                                    iconConstant: IconConstant.cycleIcon),
+                                    iconConstant: ImageConstant.cycleIcon),
                                 SizedBox(
                                   width: 10,
                                 ),
@@ -134,7 +134,8 @@ class _DetailPlantPageState extends State<DetailPlantPage> {
                             ),
                             Row(
                               children: [
-                                DetailIcon(iconConstant: IconConstant.wateIcon),
+                                DetailIcon(
+                                    iconConstant: ImageConstant.wateIcon),
                                 SizedBox(
                                   width: 10,
                                 ),
@@ -150,7 +151,7 @@ class _DetailPlantPageState extends State<DetailPlantPage> {
                             Row(
                               children: [
                                 DetailIcon(
-                                    iconConstant: IconConstant.sunnyIcon),
+                                    iconConstant: ImageConstant.sunnyIcon),
                                 SizedBox(
                                   width: 10,
                                 ),
@@ -206,7 +207,7 @@ class _DetailPlantPageState extends State<DetailPlantPage> {
                                     SizedBox(
                                       height: 5,
                                     ),
-                                    IconConstant.virusIcon
+                                    ImageConstant.virusIcon
                                   ],
                                 ),
                               ),
