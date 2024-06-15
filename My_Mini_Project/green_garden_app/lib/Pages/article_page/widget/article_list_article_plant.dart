@@ -24,12 +24,12 @@ class _ListArticlePlantState extends State<ListArticlePlant> {
   ];
 
   // List of image paths for web pages
-  List<Image> webPageImages = [
-    ImageConstant.webListOne,
-    ImageConstant.webListTwo,
-    ImageConstant.webListThree,
-    ImageConstant.webListFour,
-    ImageConstant.webListFive,
+  List<String> webPageImages = [
+    'assets/bannerList/beGarden.png',
+    'assets/bannerList/fineGarden.png',
+    'assets/bannerList/beGreen.png',
+    'assets/bannerList/tanduria.png',
+    'assets/bannerList/gardenBeast.png',
   ];
 
   @override
@@ -76,7 +76,7 @@ class _ListArticlePlantState extends State<ListArticlePlant> {
                           borderRadius: BorderRadius.circular(30),
                           image: DecorationImage(
                             image: AssetImage(
-                              webPageImages[index] as String,
+                              webPageImages[index].toString(),
                             ),
                             fit: BoxFit.cover,
                           ),

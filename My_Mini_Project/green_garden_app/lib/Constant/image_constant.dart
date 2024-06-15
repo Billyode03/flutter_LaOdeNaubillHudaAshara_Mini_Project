@@ -17,7 +17,7 @@ class ImageConstant {
   );
   static Image caruselFive = Image.asset(
     'assets/carousel/planting.jpg',
-  );
+  ); 
 
   // webList Image
   static Image webListOne = Image.asset(
